@@ -1,0 +1,30 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --inspect index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/longlc1308/booking-cinema-tickets.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/longlc1308/booking-cinema-tickets/issues"
+    },
+    "homepage": "https://github.com/longlc1308/booking-cinema-tickets#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongoose": "^6.0.8",
+        "nodemailer": "^6.6.5"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.13"
+    }
+}
