@@ -1,18 +1,18 @@
 <div class="header">
-    <a href="" class="logo">Logo</a>
+    <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" alt="CGV Cinemas" class="large" routerLink='/'>
     <div class="navigation">
         <ul class="menu">
             <div class="close-btn">
                 <i class="fas fa-times fa-2x"></i>
             </div>
-            <li class="menu-item"><a href="">Trang chủ</a></li>
             <li class="menu-item"><a href="">Lịch chiếu</a></li>
             <li class="menu-item"><a href="">Thành viên</a></li>
-            <li class="menu-item"><a href="">Hệ thống rạp</a></li>
+            <li class="menu-item"><a routerLink='site'>Hệ thống rạp</a></li>
+            <li class="menu-item"><a routerLink='login'>Đăng nhập/ Đăng ký</a></li>
             <li class="menu-item">
-                <a href="" class="sub-btn">Dropdown <i class="fas fa-angle-down"></i></a>
-                <ul class="sub-menu">
-                    <li class="sub-item"><a href="">Dashboard</a></li>
+                <a class="sub-btn" (click)="toggleDropDown()">Dropdown <i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu" id="submenu">
+                    <li class="sub-item"><a routerLink='admin/dashboard'>Dashboard</a></li>
                     <li class="sub-item"><a href="">Logout</a></li>
                 </ul>
             </li>

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -11,7 +14,11 @@ import { MemberShipComponent } from './components/member-ship/member-ship.compon
 import { SiteComponent } from './components/site/site.component';
 import { IntroductionComponent } from './components/introduction/introduction.component';
 import { RecruitmentComponent } from './components/recruitment/recruitment.component';
-import { ContactComponent } from './components/contact/contact.component'
+import { ContactComponent } from './components/contact/contact.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { LoginRegisterComponent } from './components/authentication/login-register/login-register.component';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +31,17 @@ import { ContactComponent } from './components/contact/contact.component'
     SiteComponent,
     IntroductionComponent,
     RecruitmentComponent,
-    ContactComponent
+    ContactComponent,
+    AdminComponent,
+    LoginRegisterComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

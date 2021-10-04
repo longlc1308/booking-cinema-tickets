@@ -1,0 +1,147 @@
+.login-site {
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    background-color: #fcfdf0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none;
+}
+
+.carousel-control-next-icon {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+.carousel-control-prev-icon {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+}
+
+.r-login h2 {
+    background-color: #e71a0f;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.r-login h2 span a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ddd;
+    position: relative;
+}
+
+.r-login h2 span a.active {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    pointer-events: none;
+}
+
+h2 span a.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.form-group p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.forgot-pass {
+    color: #001aff;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot-pass:hover {
+    transition: color 0.3s;
+    color: rgb(255, 0, 0)
+}
+
+.active-link {
+    color: #fff;
+}
+
+@media (max-width: 970px) {
+    .slide {
+        margin: 50px 0px;
+    }
+}
+
+.form-box {
+    position: relative;
+}
+
+.form-box .log-in-form,
+.form-box .sign-up-form {
+    width: 100%;
+}
+
+.form-box .form-group input {
+    background: white;
+    outline: none;
+    width: 100%;
+    font-weight: 500;
+    color: #3ba3eb;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.form-box .sign-up-form {
+    display: none;
+}
+
+.form-box.active .sign-up-form {
+    display: block;
+}
+
+.form-box.active .log-in-form {
+    display: none;
+}
+
+.gender-select {
+    width: min(400px, 100%);
+    font-weight: 500;
+    color: #141414;
+    font-size: 16px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input.male,
+input.female {
+    margin-right: 5px;
+    margin-left: 26px;
+}
