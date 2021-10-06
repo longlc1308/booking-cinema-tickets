@@ -1,0 +1,15 @@
+.main-content {
+    padding-left: 10px;
+    width: 735px;
+}
+.main-content .header {
+    margin-bottom: 16px;
+}
+.main-content .header h1 {
+    color: #e71a0f;
+    font-size: 32px;
+}
+.term-condition-content ul {
+    list-style: none;
+    padding-left: 16px;
+}
