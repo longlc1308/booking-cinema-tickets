@@ -1,1 +1,33 @@
-<p>member-ship works!</p>
+<div style="background-color: #fcfdf0; padding-top: 10px">
+    <div class="container">
+        <div class="header">
+            <h1>Cgv</h1>
+        </div>
+        <div class="main-content">
+            <div class="select-bar">
+                <ul>
+                    <li (click)="selectProgram('0', 0)" id="0" class="li active">
+                        <a>chương trình điểm thưởng</a>
+                    </li>
+                    <li (click)="selectProgram('1', 1)" id="1" class="li">
+                        <a>quà tặng sinh nhật</a>
+                    </li>
+                    <li (click)="selectProgram('2', 2)" id="2" class="li">
+                        <a>cấp độ thành viên</a>
+                    </li>
+                    <li (click)="selectProgram('3', 3)" id="3" class="li">
+                        <a>quản lý tài khoản</a>
+                    </li>
+                    <li (click)="selectProgram('4', 4)" id="4" class="li">
+                        <a>bạn cần hỗ trợ</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content-outer">
+                    <div class="content-details" [innerHTML]="selected_program | safeHtml"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

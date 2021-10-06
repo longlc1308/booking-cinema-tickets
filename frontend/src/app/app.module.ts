@@ -19,6 +19,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginRegisterComponent } from './components/authentication/login-register/login-register.component';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
+import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
+import { GiftCardComponent } from './components/gift-card/gift-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ResetPasswordComponent } from './components/authentication/reset-passwo
     AdminComponent,
     LoginRegisterComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SafeHtmlPipe,
+    GiftCardComponent,
   ],
   imports: [
     BrowserModule,

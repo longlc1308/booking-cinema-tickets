@@ -5,3 +5,112 @@
         scroll-behavior: smooth;
     }
 }
+
+
+/* contents css cgv-member */
+
+.lyt-heading {
+    color: #53442d;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -30px;
+    padding: 0 0 15px 15px;
+}
+
+.lyt-details-content {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-user-content.jpg) repeat-x scroll 0 100% #fff;
+    padding: 20px;
+    display: inline-block;
+}
+
+.lyt-details-content p {
+    color: #636363;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.lyt-details-content table {
+    background: none repeat scroll 0 0 #ed8c00;
+    border-spacing: 0;
+    margin: 10px 0;
+}
+
+th {
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+}
+
+.lyt-details-content table td,
+.lyt-details-content table th {
+    background: none repeat scroll 0 0 #eddcc3;
+    border-left: 1px solid #dccab3;
+    padding: 5px 4px;
+}
+
+.lyt-details-content table tr.odd td {
+    background-color: #fff2df;
+}
+
+.card-header {
+    cursor: pointer;
+}
+
+.card-header span {
+    text-transform: uppercase;
+}
+
+.card-header:hover {
+    background-color: #f59331;
+    transition: all 0.5s;
+}
+
+.card-header:hover span {
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.btn-link:hover {
+    text-decoration: none!important;
+}
+
+.ui-accordion-content {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 2px 0px 2px #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+h6 span {
+    color: #666;
+    font-weight: bold;
+    text-transform: none;
+    font-size: 16px;
+    padding: 7px 7px 7px 0px;
+    cursor: pointer;
+}
+
+.card-body a {
+    color: #e71a0f;
+    text-decoration: none;
+}
+
+.card-body p {
+    color: #636363;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.card-body strong {
+    font-weight: bold;
+}
+
+.ui-accordion-content a {
+    color: #e71a0f;
+    text-decoration: none;
+}
