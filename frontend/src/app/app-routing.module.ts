@@ -15,6 +15,9 @@ const routes: Routes = [
     { path: 'site', component: SiteComponent },
     { path: 'cgv-member', component: MemberShipComponent },
     { path: 'gift-card', component: GiftCardComponent },
+    { path: 'about-cgv',
+    loadChildren: () => import('./components/about/about.module').then(m =>m.AboutModule)
+  }
   ]},
   { path: 'admin/dashboard', component: AdminComponent },
   {
