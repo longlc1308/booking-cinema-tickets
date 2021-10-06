@@ -12,7 +12,6 @@ import { LayoutsComponent } from './components/layouts/layouts.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { MemberShipComponent } from './components/member-ship/member-ship.component';
 import { SiteComponent } from './components/site/site.component';
-import { IntroductionComponent } from './components/introduction/introduction.component';
 import { RecruitmentComponent } from './components/recruitment/recruitment.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -31,7 +30,6 @@ import { GiftCardComponent } from './components/gift-card/gift-card.component';
     HeaderComponent,
     MemberShipComponent,
     SiteComponent,
-    IntroductionComponent,
     RecruitmentComponent,
     ContactComponent,
     AdminComponent,

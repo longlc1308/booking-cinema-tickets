@@ -24,9 +24,14 @@ export class HeaderComponent implements OnInit {
     closeBtn?.addEventListener('click',() => {
       menu?.classList.remove("active")
     })
-  }
 
-  toggleDropDown() {
-    document.getElementById("submenu")!.classList.toggle("open");
+    const subBtn = document.querySelector('.sub-btn');
+    const subMenu = document.querySelector('.sub-menu');
+    subBtn.addEventListener('click',() => {
+      subMenu.classList.toggle("open");
+    })
+    subMenu.addEventListener('click',() => {
+      subMenu.classList.remove("open")
+    })
   }
 }

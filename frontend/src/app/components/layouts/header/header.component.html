@@ -8,14 +8,17 @@
             <li class="menu-item"><a href="">Lịch chiếu</a></li>
             <li class="menu-item"><a routerLink="cgv-member">Thành viên</a></li>
             <li class="menu-item"><a routerLink='site'>Hệ thống rạp</a></li>
-            <li class="menu-item"><a routerLink='login'>Đăng nhập/ Đăng ký</a></li>
             <li class="menu-item">
-                <a class="sub-btn" (click)="toggleDropDown()">Dropdown <i class="fas fa-angle-down"></i></a>
-                <ul class="sub-menu" id="submenu">
-                    <li class="sub-item"><a routerLink='admin/dashboard'>Dashboard</a></li>
-                    <li class="sub-item"><a href="">Logout</a></li>
+                <a class="sub-btn">Cultureplex <i class="fas fa-angle-down"></i></a>
+                <ul class="sub-menu">
+                    <li class="sub-item"><a>Quần online</a></li>
+                    <li class="sub-item"><a>Sự kiện & vé nhóm</a></li>
+                    <li class="sub-item"><a>E-CGV</a></li>
+                    <li class="sub-item"><a>CGV Restaurant</a></li>
+                    <li class="sub-item"><a routerLink='gift-card'>Thẻ quà tặng</a></li>
                 </ul>
             </li>
+            <li class="menu-item"><a routerLink='login'>Đăng nhập/ Đăng ký</a></li>
         </ul>
     </div>
     <div class="menu-btn"><i class="fas fa-bars fa-2x"></i></div>
