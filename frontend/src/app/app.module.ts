@@ -20,6 +20,7 @@ import { ForgotPasswordComponent } from './components/authentication/forgot-pass
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 import { GiftCardComponent } from './components/gift-card/gift-card.component';
+import { GroupSaleComponent } from './components/group-sale/group-sale.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { GiftCardComponent } from './components/gift-card/gift-card.component';
     ResetPasswordComponent,
     SafeHtmlPipe,
     GiftCardComponent,
+    GroupSaleComponent,
   ],
   imports: [
     BrowserModule,
