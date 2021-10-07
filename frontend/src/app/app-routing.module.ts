@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginRegisterComponent } from './components/authentication/login-register/login-register.component';
 import { GiftCardComponent } from './components/gift-card/gift-card.component';
+import { GroupSaleComponent } from './components/group-sale/group-sale.component';
 import { HomeComponent } from './components/home/home.component';
 import { LayoutsComponent } from './components/layouts/layouts.component';
 import { MemberShipComponent } from './components/member-ship/member-ship.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'site', component: SiteComponent },
     { path: 'cgv-member', component: MemberShipComponent },
     { path: 'gift-card', component: GiftCardComponent },
+    { path: 'groupsale', component: GroupSaleComponent },
     { path: 'about-cgv',
     loadChildren: () => import('./components/about/about.module').then(m =>m.AboutModule)
   }

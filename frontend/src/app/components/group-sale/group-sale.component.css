@@ -1,0 +1,79 @@
+.main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.home-title {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg_h3_line.jpg) repeat-x left center scroll rgba(0, 0, 0, 0);
+    height: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.gs-intro-vn h2 {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-vn.png) no-repeat scroll center center / 350px 45px #FDFCF0;
+    display: inline-block;
+    width: 370px;
+}
+
+.home-title h2 {
+    height: 60px;
+    text-indent: -99999px;
+}
+
+.about-intro-group-sale {
+    width: 100%;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-vourcher.png) no-repeat scroll left top transparent;
+    padding-left: 265px;
+    margin-top: 10px;
+}
+
+.about-intro-group-sale p {
+    text-align: justify;
+    line-height: 24px;
+    color: #636363;
+}
+
+.about-intro-group-sale p.icon-gs-contact {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-contact-vn.png) no-repeat scroll right top transparent;
+    background-size: 150px 115px;
+    width: 100%;
+    padding-right: 150px;
+    min-height: 130px;
+}
+
+.gs-service-vn h2 {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-our-service-vn.png) no-repeat scroll center center / 397px 50px #FDFCF0;
+    display: inline-block;
+    width: 417px;
+}
+
+.gs-dicuss-vn h2 {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-discuss-vn.png) no-repeat scroll center center / 416px 45px #FDFCF0;
+    display: inline-block;
+    width: 436px;
+}
+
+.contact-group-sale h3 {
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    color: #717171;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.contact-group-sale div.gs-contact-footer {
+    width: 100%;
+    text-align: center;
+    font-size: 0px;
+    height: 200px;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-footer-contact-en.png) no-repeat scroll center center transparent;
+}
+
+@media (max-width: 1199px) {
+    .about-intro-group-sale p.icon-gs-contact {
+        background-image: none;
+        padding-right: 0px;
+    }
+}

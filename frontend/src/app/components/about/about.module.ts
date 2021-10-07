@@ -13,17 +13,17 @@ import { AboutUsComponent } from './about-us/about-us.component';
 const accRouters: Routes = [
     { path: '', component: AboutComponent,
     children: [
-        { path: 'contacts', component: AboutUsContactComponent},
-        { path:'faq', component: FaQuestionComponent},
-        { path:'privacy-policy', component: PrivacyPolicyComponent},
-        { path:'terms-use', component: TermsUseComponent},
-        {path:'terms-conditions', component: TermsConditionsComponent},
-        { path:'payment-policy', component: PaymentPolicyComponent},
-        {path: 'about-us', component:AboutUsComponent},
-        { path:'', redirectTo:'about-us', pathMatch:'full'}
+        { path: 'contacts', component: AboutUsContactComponent },
+        { path: 'faq', component: FaQuestionComponent },
+        { path: 'privacy-policy', component: PrivacyPolicyComponent },
+        { path: 'terms-use', component: TermsUseComponent },
+        { path: 'terms-conditions', component: TermsConditionsComponent },
+        { path: 'payment-policy', component: PaymentPolicyComponent },
+        { path: 'about-us', component:AboutUsComponent },
+        { path:'', redirectTo:'about-us', pathMatch:'full' }
     ]
     }
-]  
+]
 
 @NgModule({
     declarations: [
