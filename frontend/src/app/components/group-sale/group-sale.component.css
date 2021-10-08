@@ -71,9 +71,137 @@
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-footer-contact-en.png) no-repeat scroll center center transparent;
 }
 
+.service-bar {
+    margin-top: 10px;
+}
+
+.service-bar ul {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+    padding-bottom: 7px;
+    text-align: center;
+}
+
+.service-bar ul li {
+    display: inline-table;
+    margin: 0 -3px 0px 0;
+    text-align: center;
+    cursor: pointer;
+    width: 16%;
+    height: 100px;
+    background: none !important;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
+}
+
+.service-bar ul li:not(:last-child) {
+    border-right: 1px solid #222;
+}
+
+.service-bar ul li.cgv-gs-os.active a {
+    filter: grayscale(0%);
+    opacity: 100;
+}
+
+.service-bar ul li.cgv-gs-os.gs-da-ngoai a {
+    background-position: -30px -8px;
+}
+
+.service-bar ul li.gs-da-ngoai a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
+.service-bar ul li.cgv-gs-os.gs-tiec-tung a {
+    background-position: -155px -8px;
+}
+
+.service-bar ul li.gs-tiec-tung a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
+.service-bar ul li.cgv-gs-os.gs-the-qua-tang a {
+    background-position: -281px -8px;
+}
+
+.service-bar ul li.gs-the-qua-tang a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
+.service-bar ul li.cgv-gs-os.gs-voucher a {
+    background-position: -419px -12px;
+}
+
+.service-bar ul li.gs-voucher a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
+.service-bar ul li.cgv-gs-os.gs-khuyen-mai a {
+    background-position: -555px -9px
+}
+
+.service-bar ul li.gs-khuyen-mai a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
+.service-bar ul li.cgv-gs-os.gs-chu-de a {
+    background-position: -700px -6px;
+}
+
+.service-bar ul li.gs-chu-de a {
+    font-size: 0px;
+    width: 140px;
+    height: 100px;
+    display: inline-block;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/gs-icon-style-vn.png);
+    filter: grayscale(95%);
+    opacity: 0.5;
+}
+
 @media (max-width: 1199px) {
     .about-intro-group-sale p.icon-gs-contact {
         background-image: none;
         padding-right: 0px;
+    }
+    .service-bar ul {
+        display: block;
+    }
+}
+
+@media (max-width: 999px) {
+    .service-bar ul li:not(:last-child) {
+        border-right: none;
     }
 }

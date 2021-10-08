@@ -16,7 +16,8 @@
 }
 
 .select-bar ul {
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
 }
 
 .select-bar ul li {
@@ -59,7 +60,6 @@
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-user-bot.png) no-repeat scroll 0 100% rgba(0, 0, 0, 0);
     padding-bottom: 23px;
     margin-bottom: 50px;
-    display: inline-block;
 }
 
 .content-details {
