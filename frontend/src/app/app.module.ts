@@ -21,6 +21,8 @@ import { ResetPasswordComponent } from './components/authentication/reset-passwo
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 import { GiftCardComponent } from './components/gift-card/gift-card.component';
 import { GroupSaleComponent } from './components/group-sale/group-sale.component';
+import { MenuConcessionComponent } from './components/menu-concession/menu-concession.component';
+import { CgvOnlineComponent } from './components/cgv-online/cgv-online.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { GroupSaleComponent } from './components/group-sale/group-sale.component
     SafeHtmlPipe,
     GiftCardComponent,
     GroupSaleComponent,
+    MenuConcessionComponent,
+    CgvOnlineComponent,
   ],
   imports: [
     BrowserModule,

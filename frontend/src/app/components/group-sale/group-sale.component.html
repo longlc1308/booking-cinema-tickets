@@ -19,6 +19,33 @@
                 </div>
                 <div>
                     <div class="cgv-list-service-group-sale">
+                        <div class="service-bar">
+                            <ul>
+                                <li (click)="selectProgram('0', 0)" id="0" class="cgv-gs-os gs-da-ngoai active">
+                                    <a>dã ngoại</a>
+                                </li>
+                                <li (click)="selectProgram('1', 1)" id="1" class="cgv-gs-os gs-tiec-tung">
+                                    <a>tiệc tùng</a>
+                                </li>
+                                <li (click)="selectProgram('2', 2)" id="2" class="cgv-gs-os gs-the-qua-tang">
+                                    <a>thẻ quà tặng</a>
+                                </li>
+                                <li (click)="selectProgram('3', 3)" id="3" class="cgv-gs-os gs-voucher">
+                                    <a>voucher</a>
+                                </li>
+                                <li (click)="selectProgram('4', 4)" id="4" class="cgv-gs-os gs-khuyen-mai">
+                                    <a>khuyến mãi</a>
+                                </li>
+                                <li (click)="selectProgram('5', 5)" id="5" class="cgv-gs-os gs-chu-de">
+                                    <a>chủ đề</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-outer">
+                            <div class="content-details" [innerHTML]="selected_program | safeHtml"></div>
+                        </div>
                     </div>
                 </div>
             </div>
