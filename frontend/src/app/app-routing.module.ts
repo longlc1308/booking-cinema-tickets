@@ -19,6 +19,9 @@ const routes: Routes = [
     { path: 'cgv-member', component: MemberShipComponent },
     { path: 'gift-card', component: GiftCardComponent },
     { path: 'groupsale', component: GroupSaleComponent },
+    { path: 'online-store',
+    loadChildren: () => import('./components/online-store/online-store.module').then(m =>m.eStoreModule)
+  },
     { path: 'about-cgv',
     loadChildren: () => import('./components/about/about.module').then(m =>m.AboutModule)
   }
