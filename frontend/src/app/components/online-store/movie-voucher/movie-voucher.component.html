@@ -1,0 +1,22 @@
+<div class="page-title">
+    <h1>Voucher Phim</h1>
+</div>
+<div class="page-content">
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let voucher of vouchers">
+            <div class="info">
+                <h2 class="voucher-name">{{voucher.name}}</h2>
+                <span class="price">{{voucher.price}}</span>
+                <a class="btn-voucher button">
+                    <span>
+                      <span>MUA</span>
+                    </span>
+                </a>
+                <div class="short-description">
+                    <div>{{voucher.description}}</div>
+                </div>
+            </div>
+            <a href="" class="image"><img src="{{voucher.imgLink}}" alt=""></a>
+        </div>
+    </div>
+</div>

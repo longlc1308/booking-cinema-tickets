@@ -1,0 +1,44 @@
+.container {
+    margin-top: 30px;
+}
+
+.category-cgv ul {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #d2cfc6;
+    margin-bottom: 20px;
+    height: 150px;
+}
+
+.category-cgv ul li {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.category-cgv ul li a {
+    display: block;
+    width: 130px;
+    height: 20px;
+    padding-top: 100px;
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/icon-cate-voucher.png);
+    color: #222222;
+    font-size: 14px;
+    text-align: center;
+    filter: grayscale(100%);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.category-cgv ul li a.active {
+    filter: grayscale(0%);
+}
+
+.category-cgv ul li a.voucher {
+    background-position: 0px 0px;
+}
+
+.category-cgv ul li a.giftcard {
+    background-position: 0px -123px;
+}
