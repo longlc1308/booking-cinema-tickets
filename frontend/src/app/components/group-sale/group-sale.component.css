@@ -205,3 +205,16 @@
         border-right: none;
     }
 }
+
+@media (max-width: 768px) {
+    .home-title {
+        background: none;
+    }
+    .home-title h2 {
+        background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/h3_movie_selection.gif) no-repeat scroll center center / 285px 41px #fcfdf0;
+        display: inline-block;
+        width: 300px;
+        height: 60px;
+        text-indent: -99999px;
+    }
+}
