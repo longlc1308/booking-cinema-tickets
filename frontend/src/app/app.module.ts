@@ -23,6 +23,8 @@ import { GiftCardComponent } from './components/gift-card/gift-card.component';
 import { GroupSaleComponent } from './components/group-sale/group-sale.component';
 import { MenuConcessionComponent } from './components/menu-concession/menu-concession.component';
 import { CgvOnlineComponent } from './components/cgv-online/cgv-online.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { CgvOnlineComponent } from './components/cgv-online/cgv-online.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

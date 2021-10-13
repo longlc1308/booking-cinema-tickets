@@ -2,24 +2,31 @@
     padding-left: 10px;
     width: 735px;
 }
+
 .main-content .header {
     margin-bottom: 16px;
 }
+
 .main-content .header h1 {
     color: #e71a0f;
     font-size: 32px;
 }
+
 .title-faq {
     display: inline-block;
     width: 100%;
 }
+
 .title-faq h2 {
     color: #e71a0f;
     float: left;
     font-size: 24px;
     margin-bottom: 15px;
 }
-.accordion .ui-state-default, .accordion .ui-widget-content .ui-state-default, .accordion .ui-widget-header .ui-state-default {
+
+.accordion .ui-state-default,
+.accordion .ui-widget-content .ui-state-default,
+.accordion .ui-widget-header .ui-state-default {
     background: #f59331;
     color: #666;
     font-weight: bold;
@@ -37,22 +44,25 @@
     box-shadow: 2px 0px 2px #ccc;
     margin-bottom: 10px;
     text-align: justify;
-    padding: 0;
+    padding: 0 !important;
 }
+
 .ui-accordion-content_ {
     padding: 20px;
 }
+
 .std p {
     color: #636363;
-    font-family: Verdana,Arial,sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 14px;
     line-height: 24px;
 }
+
 .collapsed {
     background: #ccc !important;
 }
+
 .std a {
     color: #e71a0f;
     text-decoration: none;
 }
-
