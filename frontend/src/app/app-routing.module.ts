@@ -12,32 +12,47 @@ import { MenuConcessionComponent } from './components/menu-concession/menu-conce
 import { SiteComponent } from './components/site/site.component';
 
 const routes: Routes = [
-  { path: '', component: LayoutsComponent, children: [
-    { path: '', component: HomeComponent },
-    { path: 'login', component: LoginRegisterComponent },
-    { path: 'site', component: SiteComponent },
-    { path: 'cgv-member', component: MemberShipComponent },
-    { path: 'gift-card', component: GiftCardComponent },
-    { path: 'groupsale', component: GroupSaleComponent },
-    { path: 'online-store',
-    loadChildren: () => import('./components/online-store/online-store.module').then(m =>m.eStoreModule)
+  {
+    path: '',
+    component: LayoutsComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'login', component: LoginRegisterComponent },
+      { path: 'site', component: SiteComponent },
+      { path: 'cgv-member', component: MemberShipComponent },
+      { path: 'gift-card', component: GiftCardComponent },
+      { path: 'groupsale', component: GroupSaleComponent },
+      {
+        path: 'online-store',
+        loadChildren: () =>
+          import('./components/online-store/online-store.module').then(
+            (m) => m.eStoreModule
+          ),
+      },
+      {
+        path: 'about-cgv',
+        loadChildren: () =>
+          import('./components/about/about.module').then((m) => m.AboutModule),
+      },
+    ],
   },
-    { path: 'about-cgv',
-    loadChildren: () => import('./components/about/about.module').then(m =>m.AboutModule)
-  }
-  ]},
   { path: 'menu-concession', component: MenuConcessionComponent },
   { path: 'cgv-online', component: CgvOnlineComponent },
   { path: 'admin/dashboard', component: AdminComponent },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
-  }
-]
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      initialNavigation: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

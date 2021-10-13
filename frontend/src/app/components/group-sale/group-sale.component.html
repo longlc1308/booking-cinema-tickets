@@ -44,7 +44,7 @@
                     </div>
                     <div class="content">
                         <div class="content-outer">
-                            <div class="content-details" [innerHTML]="selected_program | safeHtml"></div>
+                            <div class="content-details" [innerHTML]="selected_program | safe: 'html'"></div>
                         </div>
                     </div>
                 </div>

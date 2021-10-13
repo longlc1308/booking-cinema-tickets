@@ -44,7 +44,7 @@
     box-shadow: 2px 0px 2px #ccc;
     margin-bottom: 10px;
     text-align: justify;
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .ui-accordion-content_ {
