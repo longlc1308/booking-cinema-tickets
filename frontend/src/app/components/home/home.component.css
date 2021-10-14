@@ -69,19 +69,6 @@ section {
     text-indent: -99999px;
 }
 
-@media (max-width: 768px) {
-    .home-title {
-        background: none;
-    }
-    .home-title h2 {
-        background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/h3_movie_selection.gif) no-repeat scroll center center / 285px 41px #fcfdf0;
-        display: inline-block;
-        width: 300px;
-        height: 60px;
-        text-indent: -99999px;
-    }
-}
-
 .cards {
     /* display: grid;
     grid-auto-flow: column;
@@ -186,7 +173,7 @@ section {
     height: 355px;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     opacity: 0;
     cursor: pointer;
@@ -236,7 +223,7 @@ section {
 .event {
     border-bottom: 3px solid #241d1e;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .toggle-bar {
@@ -257,6 +244,19 @@ section {
     font-size: 16px;
 }
 
+.toggle-bar>li:last-child span {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg_tebmenu-line.gif) no-repeat scroll left 3px #e71a0f;
+    bottom: 0;
+}
+
+.toggle-bar li.active span::before {
+    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/ico_finger.png) no-repeat scroll 0 50% #e71a0f;
+    content: "";
+    height: 40px;
+    padding-left: 30px;
+    margin-left: 10px
+}
+
 .toggle-bar li:first-child {
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/ribon_left_menu.gif) no-repeat scroll left 0 #e71a0f;
     padding-left: 19px;
@@ -267,15 +267,25 @@ section {
     padding-right: 19px;
 }
 
-.toggle-bar li:last-child span {
-    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg_tebmenu-line.gif) no-repeat scroll left 4px #e71a0f;
-    bottom: 0;
+.home-show-event ul {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -50px;
+}
+
+.home-show-event ul li {
+    list-style: none;
+    width: calc(25% - 10px);
+    margin-left: 10px;
+}
+
+.home-show-event ul li img {
+    width: 100%;
 }
 
 .promotion-card {
     border-bottom: 3px solid #241d1e;
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -290,9 +300,21 @@ section {
 }
 
 .p-card a img {
-    object-fit: cover;
+    object-fit: fill;
     height: 100%;
     width: 100%;
+}
+
+.card-one {
+    width: calc(25%);
+}
+
+.card-two {
+    width: calc(50%);
+}
+
+.card-three {
+    width: calc(25%);
 }
 
 .p-card:not(:first-child) {
@@ -303,11 +325,35 @@ section {
     .home-title {
         background: none;
     }
-    .home-title h2 {
-        background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/h3_movie_selection.gif) no-repeat scroll center center / 285px 41px #fcfdf0;
+    .home-title h2.movie {
+        background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/h3_movie_selection.gif) no-repeat scroll center center / 160px 28px #fcfdf0;
         display: inline-block;
-        width: 300px;
+        width: 160px;
         height: 60px;
         text-indent: -99999px;
+    }
+    .home-title h2.event-title {
+        background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/h3_event.gif) no-repeat scroll center center / 105px 28px #fcfdf0;
+        display: inline-block;
+        width: 170px;
+        height: 60px;
+        text-indent: -99999px;
+    }
+    .toggle-bar {
+        display: block;
+    }
+}
+
+@media (max-width: 1199px) {
+    .home-show-event ul {
+        text-align: center;
+        display: inline-block;
+    }
+    .home-show-event ul li {
+        margin-bottom: 10px;
+        display: inline-flex;
+    }
+    .home-show-event ul li img {
+        width: 100%;
     }
 }

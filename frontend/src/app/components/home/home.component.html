@@ -75,13 +75,20 @@
                 <h2 class="event-title"></h2>
             </div>
             <ul class="toggle-bar">
-                <li>
+                <li id="0" (click)="selectEvent('0', 0)" class="active">
                     <span>Tin mới & ưu đãi</span>
                 </li>
-                <li>
+                <li id="1" (click)="selectEvent('1', 1)">
                     <span>Thành viên CGV</span>
                 </li>
             </ul>
+            <div class="home-show-event">
+                <ul>
+                    <li *ngFor="let imageLink of event_img">
+                        <a href=""><img src="{{imageLink}}" alt=""></a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="promotion-card">
             <div class="p-card card-one">

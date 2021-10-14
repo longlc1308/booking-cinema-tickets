@@ -28,11 +28,10 @@ export class SiteComponent implements OnInit {
 
   constructor() {
     this.cgv_city = this.cinemasList[0].cgvList;
-
    }
 
   ngOnInit() {
-    
+
 
   }
   selectRegion(id: string, index: number) {
