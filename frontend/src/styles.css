@@ -185,3 +185,31 @@ h6 span {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(transparent, #d6fc00)
 }
+
+.owl-carousel {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.owl-nav div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-nav .owl-prev i,
+.owl-nav .owl-next i {
+    font-size: 2rem!important;
+}
+
+.owl-carousel .owl-nav .owl-next {
+    background: unset!important;
+    position: absolute;
+    right: 5px
+}
+
+.owl-carousel .owl-nav .owl-prev {
+    background: unset!important;
+    position: absolute;
+    left: 5px;
+}
