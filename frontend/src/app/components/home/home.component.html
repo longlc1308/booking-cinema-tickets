@@ -284,11 +284,11 @@
         </owl-carousel-o>
     </div>
     <div class="section">
-        <div class="container">
+        <div class="container-section">
             <div class="section-header">
                 phim gần đây
             </div>
-            <div class="movies-slide">
+            <div class="movies-slide reveal">
                 <owl-carousel-o [options]="customOption2">
                     <ng-template carouselSlide>
                         <a class="movie-item">
@@ -456,11 +456,11 @@
         </div>
     </div>
     <div class="section">
-        <div class="container">
+        <div class="container-section">
             <div class="section-header">
                 phim hoạt hình
             </div>
-            <div class="movies-slide">
+            <div class="movies-slide reveal">
                 <owl-carousel-o [options]="customOption2">
                     <ng-template carouselSlide>
                         <a class="movie-item">
@@ -624,6 +624,22 @@
                         </a>
                     </ng-template>
                 </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+    <div class="newslater">
+        <div class="container">
+            <div class="newslater-container reveal">
+                <div class="over-newslater"></div>
+                <div class="newslater-wrapper">
+                    <h5 class="title-1">Subcribe to CGV</h5>
+                    <h3 class="title-2">to get exclusive benefits</h3>
+                    <form action="" class="newslater-form">
+                        <input type="text" placeholder="Your Email Address">
+                        <button type="submit">Subcribe</button>
+                    </form>
+                    <p>We respect your privacy, so we never share your info</p>
+                </div>
             </div>
         </div>
     </div>
