@@ -1,44 +1,51 @@
-
 .main {
     margin: 0 auto;
     margin-top: 30px;
     width: 980px;
-
 }
+
 .col-main {
     float: none;
     width: auto;
     padding: 0;
+    margin-bottom: 50px;
 }
+
 .cgv-showtime-top {
     /* float: left; */
     width: 100%;
     height: 43px;
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-top.png) no-repeat scroll center top transparent;
 }
+
 .theatre-city-tabs {
     /* float: left; */
     width: 100%;
 }
+
 .cgv-showtime-center {
     /* float: left; */
     width: 100%;
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-center.png) repeat-y scroll center top transparent;
 }
+
 .content-list-cinema {
     /* float: left; */
     width: 100%;
     padding: 17px 40px;
 }
+
 .title-cgv-cinema {
     text-align: center;
 }
+
 .title-cgv-cinema h1 {
     color: #717171;
     font-size: 48px;
     font-weight: bold;
     text-shadow: 2px 2px 2px #b9b9b9;
 }
+
 .cinemas-area {
     display: inline-block;
     width: 100%;
@@ -46,39 +53,46 @@
     border-top: 2px solid #727171;
     padding: 6px 10px 15px;
 }
+
 .cinemas-area ul {
     list-style: none;
     display: inline-flex;
     padding: 0px 10px;
     width: 100%;
 }
+
 .cinemas-area ul li {
     margin-top: 15px;
     width: 20%;
 }
+
 .cinemas-area ul li span {
     color: #dbdbdb;
     font-size: 14px;
 }
+
 .siteactive {
     color: #e71a0f !important;
 }
 
-.cinemas-list{
+.cinemas-list {
     width: 100%;
     /* background: #444242; */
     padding: 0 0 15px 0;
 }
+
 .cinemas-list ul {
     list-style: none;
     display: inline-flex;
     padding: 0px 10px;
     width: 100%;
 }
+
 .cinemas-list ul li {
     margin-top: 15px;
     width: 25%;
 }
+
 .cinemas-list li span {
     color: #dbdbdb;
     font-size: 14px;
@@ -89,15 +103,18 @@
     height: 43px;
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-bottom.png) no-repeat scroll center top transparent;
 }
+
 .heater-head {
     margin-top: 30px;
 }
+
 .home-title {
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg_h3_line.jpg) repeat-x scroll left center rgba(0, 0, 0, 0);
     height: 60px;
     text-align: center;
     width: 100%;
 }
+
 .home-title h3 {
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/h3_theater.gif) no-repeat scroll center center / 204px 41px transparent;
     display: inline-block;
@@ -106,22 +123,27 @@
     height: 41px;
     text-indent: -99999px;
 }
+
 .page-title {
     margin-top: 30px;
 }
+
 .theater-title {
     text-align: center;
     width: 100%;
 }
+
 .theater-title h3 {
     font-size: 30px;
     color: #636363;
     font-family: Verdana, Arial, sans-serif;
 }
+
 .theater-gallery {
     position: relative;
     margin-bottom: 30px;
 }
+
 .theater-infomation {
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-box-content-info-theater.png) repeat scroll 0 0 rgba(0, 0, 0, 0);
     bottom: 0px;
@@ -133,32 +155,35 @@
     position: absolute;
     width: 100%;
     z-index: 125;
-
 }
+
 .theater-infomation .left-info-theater {
     width: 68%;
 }
 
 .theater-infomation .right-info-theater {
     width: 30%;
-
     border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .theater-left-content {
     font-size: 14px;
     overflow: hidden;
     padding-right: 20px;
 }
+
 .theater-right-content {
     overflow: hidden;
     padding-left: 20px;
 }
+
 .theater-right-content div {
     clear: both;
     float: left;
     margin: 5px 0 15px;
     width: 100%;
 }
+
 .theater-right-content a {
     background: none repeat scroll 0 0 #e71a0f;
     border-radius: 5px;
@@ -170,24 +195,33 @@
     white-space: nowrap;
     text-decoration: none;
 }
+
 .cboxLoadedContent {
-    position: fixed;   /* Take it out of the flow of the document */
-    left: 0;           /* Left edge at left for now */
-    right: 0;          /* Right edge at right for now, so full width */ 
-    top: 0;         /* Move it down from top of window */
-    width: 100%;      /* Give it the desired width */ 
-    margin: auto;  
-    height: 100%;    /* Center it */
-    max-width: 100%;   /* Make it fit window if under 500px */ 
-    z-index: 500;  
+    position: fixed;
+    /* Take it out of the flow of the document */
+    left: 0;
+    /* Left edge at left for now */
+    right: 0;
+    /* Right edge at right for now, so full width */
+    top: 0;
+    /* Move it down from top of window */
+    width: 100%;
+    /* Give it the desired width */
+    margin: auto;
+    height: 100%;
+    /* Center it */
+    max-width: 100%;
+    /* Make it fit window if under 500px */
+    z-index: 500;
     cursor: pointer;
     display: block;
-    background: rgba(0,0,0,0.8)
+    background: rgba(0, 0, 0, 0.8)
 }
+
 .cboxLoadedContent .cboxDisplay {
     display: block;
     width: 980px;
-    height:500px;
+    height: 500px;
     align-items: center;
     position: relative;
     top: 240px;
@@ -195,10 +229,12 @@
     margin-left: -490px;
     z-index: 100000;
 }
-.cboxLoadedContent iframe{
+
+.cboxLoadedContent iframe {
     width: 100%;
     height: 100%;
 }
+
 .cboxDisplay .cboxClose {
     position: absolute;
     top: 30px;
@@ -209,9 +245,11 @@
     height: 19px;
     text-indent: -9999px;
 }
-.hidden{
-    display:none;
+
+.hidden {
+    display: none;
 }
+
 .cboxTitle {
     color: #ccc;
 }
