@@ -4,7 +4,7 @@ body {
     background-color: #181616;
 }
 
-.container {
+.container-section {
     max-width: 1920px;
     padding: 0 40px;
     margin: auto;
@@ -281,4 +281,109 @@ body {
     .item-content-title {
         font-size: 30px;
     }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1s ease-in-out;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.newslater {
+    margin-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.newslater-container {
+    background-image: url(http://pixner.net/boleto/demo/assets/images/newslater/newslater-bg01.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    background-image: url(http://pixner.net/boleto/demo/assets/images/footer/footer-shape.png);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 120px;
+}
+
+.over-newslater {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.newslater-wrapper {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.newslater-wrapper h5 {
+    color: #fff;
+    margin-bottom: 23px;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.newslater-wrapper h3 {
+    margin-bottom: 50px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+
+.newslater-form {
+    margin-bottom: 34px;
+    position: relative;
+}
+
+.newslater-form input {
+    height: 50px;
+    padding-right: 160px;
+    color: #99abe2;
+    border: 1px solid rgba(14, 7, 7, 0.4);
+    border-radius: 25px;
+    padding-left: 20px;
+    box-shadow: 0px 3px 10px 0px rgb(0 0 0 / 10%);
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.newslater-form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    color: #dbe2fb;
+    background-image: -webkit-linear-gradient( 169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    box-shadow: 0px 10px 15px 0px rgb(59 55 188 / 50%);
+    width: auto;
+    padding: 0 40px;
+    border-radius: 25px;
+    border: none;
+}
+
+.newslater-wrapper p {
+    color: #fff;
+    font-size: 18px;
 }

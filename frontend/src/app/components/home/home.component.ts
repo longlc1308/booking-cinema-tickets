@@ -11,6 +11,22 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.addEventListener('scroll', this.reveal)
+  }
+
+  reveal = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    for ( var i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 50;
+      if(revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+      }
+      else {
+        reveals[i].classList.remove('active');
+      }
+    }
   }
   customOption1: OwlOptions = {
     loop: true,
