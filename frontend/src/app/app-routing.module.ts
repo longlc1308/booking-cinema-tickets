@@ -10,6 +10,7 @@ import { LayoutsComponent } from './components/layouts/layouts.component';
 import { MemberShipComponent } from './components/member-ship/member-ship.component';
 import { MenuConcessionComponent } from './components/menu-concession/menu-concession.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { RecruitmentComponent } from './components/recruitment/recruitment.component';
 import { SiteComponent } from './components/site/site.component';
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'cgv-member', component: MemberShipComponent },
       { path: 'gift-card', component: GiftCardComponent },
       { path: 'groupsale', component: GroupSaleComponent },
+      { path: 'recruitment', component: RecruitmentComponent },
       {
         path: 'online-store',
         loadChildren: () =>
