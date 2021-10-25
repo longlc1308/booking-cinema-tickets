@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LayoutsComponent } from './components/layouts/layouts.component';
 import { MemberShipComponent } from './components/member-ship/member-ship.component';
 import { MenuConcessionComponent } from './components/menu-concession/menu-concession.component';
-import { MoviesComponent } from './components/movies/movies.component';
 import { RecruitmentComponent } from './components/recruitment/recruitment.component';
 import { SiteComponent } from './components/site/site.component';
 
@@ -19,13 +18,19 @@ const routes: Routes = [
     component: LayoutsComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'movies', component: MoviesComponent },
       { path: 'login', component: LoginRegisterComponent },
       { path: 'site', component: SiteComponent },
       { path: 'cgv-member', component: MemberShipComponent },
       { path: 'gift-card', component: GiftCardComponent },
       { path: 'groupsale', component: GroupSaleComponent },
       { path: 'recruitment', component: RecruitmentComponent },
+      {
+        path: 'movies',
+        loadChildren: () =>
+        import('./components/movies/movies.module').then(
+          (m) => m.movieModule
+        )
+      },
       {
         path: 'online-store',
         loadChildren: () =>
