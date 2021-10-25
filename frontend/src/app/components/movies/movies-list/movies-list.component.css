@@ -1,0 +1,213 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.header {
+    padding: 25px;
+}
+
+.header .title {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color: #141414;
+    font-family: "Cairo", sans-serif;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header .title::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    background: linear-gradient(to right, #f80404, #000000);
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.header .title::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background-color: #fcfdf0;
+}
+
+.header h3 {
+    padding-top: 15px;
+    z-index: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.select ul {
+    display: flex;
+    justify-content: center;
+}
+
+.select ul li:not(:first-child) {
+    margin-left: 20px;
+}
+
+.btn a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-size: 24px;
+    color: #2196f3;
+    padding: 15px 20px;
+    overflow: hidden;
+}
+
+.btn a.active {
+    color: #fff;
+    background-color: #f32121;
+    box-shadow: 0 0 20px #f32121;
+    transition: all .5s;
+    pointer-events: none;
+}
+
+.btn a span {
+    position: absolute;
+    display: block;
+}
+
+.btn a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f32121);
+}
+
+.btn a:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.btn a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #f32121);
+}
+
+.btn a:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.btn a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #f32121);
+}
+
+.btn a:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.btn a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #f32121);
+}
+
+.btn a:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+.movies {
+    --spacing: 25px;
+    --columns: 4;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * var(--spacing));
+}
+
+.movie-item {
+    position: relative;
+    margin-bottom: var(--spacing);
+    cursor: pointer;
+    width: calc(calc(100% / var(--columns)) - var(--spacing));
+    margin-left: var(--spacing);
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-title {
+    font-family: "Cairo", sans-serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.booking a {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.user-option .btn-danger {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+    .movies {
+        --spacing: 15px;
+        --columns: 3;
+        padding: 0 25px;
+    }
+    .user-option .btn-danger {
+        margin-right: 2px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .movies {
+        --spacing: 15px;
+        --columns: 1;
+        padding: 0 25px;
+    }
+    .user-option .btn-danger {
+        margin-right: 10px;
+    }
+}

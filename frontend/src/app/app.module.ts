@@ -23,11 +23,10 @@ import { GiftCardComponent } from './components/gift-card/gift-card.component';
 import { GroupSaleComponent } from './components/group-sale/group-sale.component';
 import { MenuConcessionComponent } from './components/menu-concession/menu-concession.component';
 import { CgvOnlineComponent } from './components/cgv-online/cgv-online.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MoviesComponent } from './components/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,6 @@ import { MoviesComponent } from './components/movies/movies.component';
     GroupSaleComponent,
     MenuConcessionComponent,
     CgvOnlineComponent,
-    MoviesComponent,
   ],
   imports: [
     BrowserModule,
