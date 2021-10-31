@@ -1,14 +1,31 @@
-import jwt from "jsonwebtoken";
+import {JWT} from "../config/jwt.config";
 import {NextFunction, Request, Response} from "express";
 
 
-export const cookieJwtAuth = (req: Request, res: Response, next: NextFunction) => {
-    const token = req.cookies.token;
-    try{
-        const data = jwt.verify(token, 'fuckingshit'); 
+export const cookieJwtAuth = (req: IGETJwtInfoRequest, res: Response, next: NextFunction) => {
+    const token = req.signedCookies.token;
+    const jwt = new JWT(token);
+    const data = jwt.verify();
+    if (data.success === 0) {
+        console.log(data)
+        return res.status(401).json({success: 0, errors: data.error})
+    } else {
+        req.jwt_payload = data.payload
         next();
-    }catch(err){
-        return res.status(401).json({error: err})
     }
 };
 
+export interface JWTPayload {
+    email: string;
+    id: string;
+    iat: number;
+}
+export interface IGETJwtInfoRequest extends Request {
+    jwt_payload: JWTPayload;
+}
+
+export interface JWTDecodedInfo {
+    success: 0 | 1;
+    error?: any;
+    payload? : JWTPayload;
+}
