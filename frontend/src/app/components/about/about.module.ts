@@ -20,7 +20,7 @@ const accRouters: Routes = [
         { path: 'terms-conditions', component: TermsConditionsComponent },
         { path: 'payment-policy', component: PaymentPolicyComponent },
         { path: 'about-us', component:AboutUsComponent },
-        { path:'', redirectTo:'about-us', pathMatch:'full' }
+        { path: '', redirectTo:'about-us', pathMatch:'full' }
     ]
     }
 ]

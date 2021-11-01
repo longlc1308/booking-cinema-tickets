@@ -12,11 +12,18 @@
                             <form (ngSubmit)="onSignIn()" [formGroup]="signInForm">
                                 <div class="form-group">
                                     <p>Email:</p>
-                                    <input type="email" class="form-style" placeholder="Email" formControlName="email">
+                                    <input type="email" class="form-style" placeholder="Email" formControlName="email" required>
+                                    <div *ngIf="showValidateSignIn">
+                                        <small class="form-text text-muted" *ngIf="signInForm.controls.email.errors?.required">Vui lòng nhập email</small>
+                                    </div>
+                                    <small class="form-text text-muted" *ngIf="signInForm.controls.email.dirty && signInForm.controls.email.errors?.pattern">Email không đúng định dạng</small>
                                 </div>
                                 <div class="form-group">
                                     <p>Mật khẩu:</p>
                                     <input type="password" formControlName="password" class="form-style" placeholder="Mật khẩu">
+                                    <div *ngIf="showValidateSignIn">
+                                        <small class="form-text text-muted" *ngIf="signInForm.controls.password.errors?.required">Vui lòng nhập mật khẩu</small>
+                                    </div>
                                 </div>
                                 <span><a class="d-block text-right forgot-pass">Quên mật khẩu</a></span>
                                 <br>
@@ -26,44 +33,65 @@
                             <button class="btn btn-danger w-100">Đăng nhập với google</button>
                         </div>
                         <div class="sign-up-form" style="color: #141414">
-                            <form (ngSubmit)="onSignUp()" [formGroup]="signUpForm">
+                            <form (ngSubmit)="onSignUp()" [formGroup]="signUpForm" autocomplete="false" novalidate="true">
                                 <div class="form-group">
                                     <p>Tên người dùng:</p>
-                                    <input type="name" class="form-style" placeholder="Tên" formControlName="name">
+                                    <input type="name" class="form-style" placeholder="Tên" formControlName="name" required>
+                                    <div *ngIf="showValidateSignUp">
+                                        <small class="form-text text-muted" *ngIf="signUpForm.controls.name.errors?.required">Vui lòng nhập họ tên</small>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <p>Số điện thoại:</p>
-                                    <input type="phone" formControlName="phone" class="form-style" placeholder="Số điện thoại">
+                                    <input type="phone" formControlName="phone" class="form-style" placeholder="Số điện thoại" required>
+                                    <div *ngIf="showValidateSignUp">
+                                        <small class="form-text text-muted" *ngIf="signUpForm.controls.phone.errors?.required">Vui lòng nhập số điện thoại</small>
+                                    </div>
+                                    <small class="form-text text-muted" *ngIf="signUpForm.controls.phone.dirty && signUpForm.controls.phone.errors?.pattern">Số điện thoại không đúng định dạng</small>
                                 </div>
                                 <div class="form-group">
                                     <p>Email:</p>
-                                    <input type="email" formControlName="email" class="form-style" placeholder="Email">
+                                    <input type="email" formControlName="email" class="form-style" placeholder="Email" required>
+                                    <div *ngIf="showValidateSignUp">
+                                        <small class="form-text text-muted" *ngIf="signUpForm.controls.email.errors?.required">Vui lòng nhập email</small>
+                                    </div>
+                                    <small class="form-text text-muted" *ngIf="signUpForm.controls.email.dirty && signUpForm.controls.email.errors?.pattern">Email không đúng định dạng</small>
                                 </div>
                                 <div class="form-group">
                                     <p>Mật khẩu:</p>
-                                    <input type="password" formControlName="password" class="form-style" placeholder="Mật khẩu">
+                                    <input type="password" formControlName="password" class="form-style" placeholder="Mật khẩu" required>
+                                    <div *ngIf="showValidateSignUp">
+                                        <small class="form-text text-muted" *ngIf="signUpForm.controls.password.errors?.required">Vui lòng nhập mật khẩu</small>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <p>Ngày sinh:</p>
-                                    <input type="date" class="form-style" id="birthday" formControlName="birthday" />
+                                    <input type="date" class="form-style" id="birthday" formControlName="birthday" required />
+                                    <div *ngIf="showValidateSignUp">
+                                        <small class="form-text text-muted" *ngIf="signUpForm.controls.birthday.errors?.required">Vui lòng chọn ngày sinh</small>
+                                    </div>
                                 </div>
                                 <div class="gender-select">
                                     <div>
-                                        <input class="male ml-0" name="gender" type="radio" value="male" formControlName="gender" /> Nam
+                                        <input class="male ml-0" name="gender" type="radio" value="male" formControlName="gender" required /> Nam
                                     </div>
                                     <div>
-                                        <input class="female" name="gender" type="radio" value="female" formControlName="gender" /> Nữ
+                                        <input class="female" name="gender" type="radio" value="female" formControlName="gender" required /> Nữ
                                     </div>
+                                </div>
+                                <div *ngIf="showValidateSignUp">
+                                    <small class="form-text text-muted" *ngIf="signUpForm.controls.gender.errors?.required">Vui lòng chọn giới tính</small>
                                 </div>
                                 <div class="form-group">
                                     <p>Khu vực: </p>
-                                    <select class="form-control" formControlName="area">
+                                    <select class="form-control" formControlName="area" required>
                                       <option value="HN" selected>Hà Nội</option>
                                       <option value="HCM">Hồ Chí Minh</option>
                                     </select>
                                 </div>
+                                <small class="form-text text-muted" *ngIf="signUpForm.controls['acceptTerms'].errors && signUpForm.controls['acceptTerms'].errors.required">Vui lòng đồng ý với điều khoản của chúng tôi</small>
                                 <div class="form-group" style="display: flex; justify-content: flex-start;">
-                                    <input type="checkbox" name="agree" value="agree" style="width:20px; margin-top: 6px;">
+                                    <input type="checkbox" id="acceptTerms" formControlName="acceptTerms" id="checkbox" name="agree" value="agree" style="width:20px; margin-top: 6px;" required>
                                     <label for="agree">Tôi đồng ý với <a href="">Điều khoản sử dụng của CGV</a></label>
                                 </div>
                                 <button type="submit" class="btn btn-danger w-100">Đăng ký</button>

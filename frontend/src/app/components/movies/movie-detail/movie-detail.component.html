@@ -4,8 +4,13 @@
             <h3>Nội dung phim</h3>
         </div>
         <div class="movie">
-            <div class="movie-img">
-                <img src="../../../assets/images/series/bat-man.jpg" alt="">
+            <div class="movie-image">
+                <img id="featured" [src]="imageUrl" alt="">
+                <div class="select-image">
+                    <div *ngFor="let image of imagesList; let i = index" (mouseover)="onSelectImage(image.src, i)">
+                        <img [ngClass]="{active: i == oldId}" class="thumbnail" src="{{image.src}}" alt="">
+                    </div>
+                </div>
             </div>
             <div class="movie-content">
                 <div class="movie-title">
@@ -18,6 +23,10 @@
                     <p><b>Khởi chiếu: </b> 15/04/2021</p>
                     <p><b>Thời lượng: </b>114 phút</p>
                     <p><b>Ngôn ngữ: </b> Tiếng Hàn - Phụ đề Tiếng Việt</p>
+                </div>
+                <div class="movie-button">
+                    <button class="btn btn-danger">Trailer</button>
+                    <button class="btn btn-danger">Đặt vé</button>
                 </div>
             </div>
         </div>

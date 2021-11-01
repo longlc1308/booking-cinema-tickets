@@ -1,0 +1,66 @@
+<div class="main-layout">
+    <div class="form-layout">
+        <div class="header-title mb-3">
+            <h3>Add product</h3>
+            <button mat-stroked-button type="button" class="btn btn-danger" (click)="goBack()"><i class="fas fa-undo-alt"></i></button>
+        </div>
+        <div class="form-body">
+            <div class="form-text form-content">
+                <div class="form-group mb-3">
+                    <label for="name">Tên sản phẩm</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="name">Đạo diễn</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="name">Diễn viên</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="name">Thể loại</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="name">Mô tả</label>
+                    <textarea class="form-control validate" rows="4" required=""></textarea>
+                </div>
+                <div class="form-group mb-3 option">
+                    <div class="time">
+                        <label for="name">Thời lượng</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="date">
+                        <label for="date">Ngày khởi chiếu</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="rate">
+                        <label for="rate">Đánh giá</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-image form-content">
+                <div class="main-image">
+                    <div *ngFor="let image of imageURL" class="item-image">
+                        <img [src]="image" alt="">
+                        <a (click)="deleteImage(image)"><i class="fas fa-minus"></i></a>
+                    </div>
+                </div>
+                <div class="image-area mb-3" *ngIf="imageArea">
+                    <div class="image">
+                        <a (click)="filePicker.click()"> <i class="fas fa-cloud-upload-alt"></i></a>
+                    </div>
+                </div>
+                <div class="button-image">
+                    <button mat-stroked-button type="button" class="btn btn-primary" (click)="filePicker.click()">Thêm ảnh</button>
+                    <input type="file" style="visibility: hidden" #filePicker (change)="onImagePicked($event)" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="footer-form mt-3">
+            <button mat-stroked-button type="button" class="btn btn-primary">Thêm sản phẩm</button>
+        </div>
+    </div>
+</div>
