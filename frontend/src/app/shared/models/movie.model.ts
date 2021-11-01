@@ -7,7 +7,7 @@ export interface Movie {
     languages: string;
     startAt: string;
     timeAmount: number;
-    describtion: string;
+    description: string;
     image: string;
     types: string;
     premium: boolean;

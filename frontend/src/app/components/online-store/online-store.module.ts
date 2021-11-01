@@ -8,7 +8,8 @@ import { GiftcardComponent } from './giftcard/giftcard.component';
 const eStoreRouters : Routes = [
   { path: '', component: OnlineStoreComponent, children: [
     { path: 'movie-voucher', component: MovieVoucherComponent },
-    { path: 'gift-card', component: GiftcardComponent }
+    { path: 'gift-card', component: GiftcardComponent },
+    { path: '', redirectTo: 'movie-voucher', pathMatch:'full' }
   ]}
 ]
 

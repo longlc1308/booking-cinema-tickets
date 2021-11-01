@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 15px 30px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+table th {
+    font-weight: 600;
+    color: #364d67;
+    background-color: #e0efff;
+}
+
+table td {
+    background-color: #fff;
+}
+
+table tbody tr {
+    border-top: 1px solid #f0f4f8;
+}
+
+table .user {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+}
+
+table .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sticky-table {
+    overflow: auto;
+    border: 1px solid #cccccc;
+}
+
+.sticky-table thead th:first-child,
+.sticky-table tbody td:first-child {
+    position: sticky;
+    left: 0;
+}
+
+.sticky-table button {
+    padding: 3px 8px;
+}
