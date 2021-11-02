@@ -19,7 +19,7 @@
                     </div>
                     <div class="cinemas-list">
                         <ul>
-                            <li type="button" [value]="span" *ngFor="let cinema of cgv_city, let j = index" (click)="displayCurrentCgv(cinema, j.toString(), $event)">
+                            <li type="button" [value]="span" *ngFor="let cinema of cgv_city, let j = index" (click)="displayCurrentCgv(cinema, j.toString())">
                                 <span [id]="'wave'+ j">{{cinema}}</span>
                             </li>
                         </ul>

@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MoviesComponent } from './movies.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieShowtimeComponent } from './movie-showtime/movie-showtime.component';
 
 const movieRouters : Routes = [
   { path: '', component: MoviesComponent , children: [
     { path: '', component: MoviesListComponent },
-    { path: 'detail', component: MovieDetailComponent }
+    { path: 'detail', component: MovieDetailComponent },
+    { path: 'detail/showtime', component: MovieShowtimeComponent }
   ]}
 ]
 
@@ -16,7 +18,8 @@ const movieRouters : Routes = [
   declarations: [
     MoviesComponent,
     MoviesListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieShowtimeComponent
   ],
   imports: [
     CommonModule,

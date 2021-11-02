@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   imagesList = [
     { src: './../../../assets/images/series/blood-shot.jpg'},
@@ -23,5 +26,9 @@ export class MovieDetailComponent implements OnInit {
   onSelectImage(url: string, index: string) {
     this.imageUrl = url;
     this.oldId = index;
+  }
+
+  showtime(){
+    this.router.navigate(['movies/detail/showtime'])
   }
 }

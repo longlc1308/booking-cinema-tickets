@@ -131,6 +131,11 @@ header label span {
     color: #8390A2;
 }
 
+.user-wrapper small a {
+    text-decoration: none;
+    color: red;
+}
+
 main {
     margin-top: 75px;
     padding: 2rem 1.5rem;

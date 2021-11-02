@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Cairo", sans-serif;
+}
+
+.container {
+    margin: 30px auto;
+    background-color: #fcfdf0;
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid #141414;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+.header-title h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.daily {
+    display: flex;
+    margin-left: -20px;
+    flex-wrap: wrap;
+}
+
+.day-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    margin-left: 20px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.day-item:hover {
+    border: 2px solid #141414;
+}
+
+.daily .active {
+    border: 2px solid #141414;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.left-content span {
+    color: #717171;
+    font-size: 11px;
+}
+
+.cinema-area {
+    padding: 10px 0px;
+    display: flex;
+}
+
+.cinema-area .active {
+    background-color: #141414;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.cinema-area .city-area {
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.cinema-list>div {
+    padding: 10px 0;
+    border-top: 2px solid #141414;
+}
+
+.cinema-list span {
+    color: #717171;
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.time {
+    display: flex;
+    padding: 10px 0;
+    margin-left: -30px;
+}
+
+.time-content {
+    cursor: pointer;
+    margin-left: 30px;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+}
+
+.time-content:hover {
+    border: 1px solid #141414;
+}

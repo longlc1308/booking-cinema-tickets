@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GroupSaleComponent,
     MenuConcessionComponent,
     CgvOnlineComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
