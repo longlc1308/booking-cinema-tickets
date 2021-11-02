@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="header-layout">
+        <div class="header-title">
+            <h3>Movie name</h3>
+        </div>
+    </div>
+    <div class="body-layout">
+        <div class="daily">
+            <div class="day-item" *ngFor="let calendar of listDay; let i = index" [ngClass]="{active: i == oldId}" (click)="onChange(i)">
+                <div class="left-content">
+                    <span>{{calendar.month}}</span>
+                    <span>{{calendar.day}}</span>
+                </div>
+                <div>
+                    <h3>{{calendar.date}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="cinema-area">
+            <div *ngFor="let cinemaArea of cinemasList; let i = index">
+                <div class="city-area" [ngClass]="{active: i == lastId}">
+                    <span [id]="i" (click)="selectRegion($event.target.id)">{{cinemaArea.city}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="cinema-list">
+            <div *ngFor="let cinema of cgv_city">
+                <span>{{cinema}}</span>
+                <div class="time">
+                    <div class="time-content">
+                        <p>8:00 AM</p>
+                    </div>
+                    <div class="time-content">
+                        <p>16:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

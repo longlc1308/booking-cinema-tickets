@@ -45,7 +45,7 @@ export class SiteComponent implements OnInit {
     this.oldId = id;
   }
 
-  displayCurrentCgv(cgv_name:string, currentId: string, dcmm) {
+  displayCurrentCgv(cgv_name:string, currentId: string) {
     console.log(currentId);
     if(this.rId){
       const cgvUnacctive = document.getElementById(this.rId);

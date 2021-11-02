@@ -61,6 +61,8 @@ export class LoginRegisterComponent implements OnInit {
     if(this.signUpForm.invalid){
       this.showValidateSignUp = true;
     }
+    else{
+      console.log("hello");
+    }
   }
-
 }
