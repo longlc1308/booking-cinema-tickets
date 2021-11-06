@@ -12,15 +12,17 @@ export const signup = async (req: Request, res: Response) => {
         if(existed_user) {
             return res.status(400).json({errors: 'Email Existed'});
         }
-
         const user = new User({
             email: req.body.email,
             password: req.body.password,
             name: req.body.name,
+            phone: req.body.phone,
+            gender: req.body.gender,
             reg_date: new Date(),
             date_of_birth: new Date(),
+            area: req.body.area,
+            role: req.body.role,
             member_rankpoints: req.body.member_rankpoints,
-            phone: req.body.phone,
         });
         await user.save();
         const jwt = new JWT(user.email, user._id);
@@ -56,7 +58,10 @@ export const login = async (req: Request, res: Response) => {
             res.status(200).json({
                 success:1,
                 error:null,
+                token:access_token,
                 expiresIn: 3600,
+                userId: user._id,
+                role: user.role,
             });
         })
     }catch(err){

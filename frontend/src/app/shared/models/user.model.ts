@@ -1,15 +1,12 @@
 export interface User {
+    email: string;
+    password: string;
     name: string;
     phone: string;
-    email: string;
-    gender_id: string;
-    reg_date: string;
+    gender: string;
+    reg_date: Date;
     date_of_birth: string;
-    state: string;
+    area: string;
+    role: string;
     member_rankpoints: number;
-    is_active: string;
-}
-export interface Gender {
-    id:string;
-    name:string;
 }

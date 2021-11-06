@@ -10,7 +10,7 @@ import { TermsConditionsComponent } from './terms-conditions/terms-conditions.co
 import { PaymentPolicyComponent } from './payment-policy/payment-policy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
-const accRouters: Routes = [
+const aboutRouters: Routes = [
     { path: '', component: AboutComponent,
     children: [
         { path: 'contacts', component: AboutUsContactComponent },
@@ -38,7 +38,7 @@ const accRouters: Routes = [
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild(accRouters)
+        RouterModule.forChild(aboutRouters)
     ]
 })
 

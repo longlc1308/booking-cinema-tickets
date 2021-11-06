@@ -55,6 +55,10 @@ export class LoginRegisterComponent implements OnInit {
     if(this.signInForm.invalid){
       this.showValidateSignIn = true;
     }
+    else {
+      console.log(this.signInForm.value);
+
+    }
   }
 
   onSignUp(){
@@ -62,7 +66,7 @@ export class LoginRegisterComponent implements OnInit {
       this.showValidateSignUp = true;
     }
     else{
-      console.log("hello");
+      console.log(this.signUpForm.value);
     }
   }
 }
