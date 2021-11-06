@@ -16,6 +16,7 @@ export class MovieShowtimeComponent implements OnInit {
     {city: 'Hà Nội', cgvList: ['CGV Vincom Center Bà Triệu', 'CGV Vincom Royal City', 'CGV Hồ Gươm Plaza']},
     {city: 'Hồ Chí Minh', cgvList: ['CGV Hùng Vương Plaza', 'CGV Crescent Mall', 'CGV Pandora City']},
   ];
+  timeStart = ['8:00 AM','16:00 PM']
 
   constructor() {
     this.cgv_city = this.cinemasList[0].cgvList;

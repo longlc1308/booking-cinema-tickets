@@ -27,11 +27,8 @@
             <div *ngFor="let cinema of cgv_city">
                 <span>{{cinema}}</span>
                 <div class="time">
-                    <div class="time-content">
-                        <p>8:00 AM</p>
-                    </div>
-                    <div class="time-content">
-                        <p>16:00 PM</p>
+                    <div class="time-content" *ngFor="let time of timeStart">
+                        <p>{{time}}</p>
                     </div>
                 </div>
             </div>

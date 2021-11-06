@@ -3,14 +3,15 @@ import argon2 from "argon2";
 
 
 export type UserDocument =  mongoose.Document & {
-    name: string;
-    phone: string;
     email: string;
     password: string;
-    gender: {gender_id: string, gender_name: string};
+    name: string;
+    phone: string;
+    gender: string;
     reg_date: Date;
     date_of_birth: Date;
-    state: string;
+    area: string;
+    role: string;
     member_rankpoints: number;
     is_active: 0 | 1;
 
@@ -33,10 +34,11 @@ type compareHash = (
     password: String,
     name: String,
     phone: String,
-    gender: {gender_id: String, gender_name: String},
+    gender: String,
     reg_date: Date,
     date_of_birth: Date,
-    state: String,
+    area: String,
+    role: String,
     member_rankpoints: {type: Number, default: 0},
     is_active: {type: Number, default: 0 }
 

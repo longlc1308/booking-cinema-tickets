@@ -14,7 +14,7 @@ class App {
         serverSelectionTimeoutMS: 5000,
         autoIndex: false
     }
-    private _mongooseUrl = 'mongodb://localhost:27017/myapp';
+    private _mongooseUrl = 'mongodb+srv://adlongluuc:73wmA2dyktLuXJ4a@bookingcinema.4k75s.mongodb.net/cinema';
     private readonly _secretCookie = 'fuckingshit';
     constructor() {
         this.express = express();
@@ -44,8 +44,11 @@ class App {
     }
 
     private _loadRoutes() {
-        this.express.use('/api/v1.0/', router);
-      }
+        this.express.use('/api/v1.0', router);
+        this.express.get('/', (req, res) => {
+            res.send('Backend is working')
+        })
+    }
 }
 
 export default new App().express
