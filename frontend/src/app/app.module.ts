@@ -45,7 +45,7 @@ import { UserComponent } from './components/user/user.component';
     GroupSaleComponent,
     MenuConcessionComponent,
     CgvOnlineComponent,
-    UserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+.main-content h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #141414;
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 table {
     width: 100%;
 }
@@ -51,6 +60,7 @@ table .user img {
 
 .sticky-table thead th:first-child,
 .sticky-table tbody td:first-child {
+    background-color: #eee;
     position: sticky;
     left: 0;
 }

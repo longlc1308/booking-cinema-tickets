@@ -4,63 +4,80 @@
             <h3>Add product</h3>
             <button mat-stroked-button type="button" class="btn btn-danger" (click)="goBack()"><i class="fas fa-undo-alt"></i></button>
         </div>
-        <div class="form-body">
-            <div class="form-text form-content">
-                <div class="form-group mb-3">
-                    <label for="name">Tên sản phẩm</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="name">Đạo diễn</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="name">Diễn viên</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="name">Thể loại</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="form-group mb-3">
-                    <label for="name">Mô tả</label>
-                    <textarea class="form-control validate" rows="4" required=""></textarea>
-                </div>
-                <div class="form-group mb-3 option">
-                    <div class="time">
-                        <label for="name">Thời lượng</label>
-                        <input type="text" class="form-control">
+        <form (ngSubmit)="onAdd()" [formGroup]="movieForm" autocomplete="off" novalidate="true">
+            <div class="form-body">
+                <div class="form-text form-content">
+                    <div class="form-group mb-3">
+                        <label for="name">Tên sản phẩm</label>
+                        <input type="text" class="form-control" formControlName="name" required>
                     </div>
-                    <div class="date">
-                        <label for="date">Ngày khởi chiếu</label>
-                        <input type="date" class="form-control">
+                    <div class="form-group mb-3">
+                        <label for="id">Mã phim</label>
+                        <input type="text" class="form-control" formControlName="idMovie" required>
                     </div>
-                    <div class="rate">
-                        <label for="rate">Đánh giá</label>
+                    <div class="form-group mb-3">
+                        <label for="name">Đạo diễn</label>
+                        <input type="text" class="form-control" formControlName="directors" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Diễn viên</label>
+                        <input type="text" class="form-control" formControlName="actors" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Thể loại</label>
+                        <input type="text" class="form-control" formControlName="types" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Mô tả</label>
+                        <textarea class="form-control validate" rows="4" formControlName="description" required></textarea>
+                    </div>
+                    <div class="form-group mb-3 option">
+                        <div class="rate">
+                            <label for="rate">Đánh giá</label>
+                            <select id="rate" class="form-custom" formControlName="rated">
+                              <option selected disabled>Rating</option>
+                              <option value="1">1*</option>
+                              <option value="2">2*</option>
+                              <option value="3">3*</option>
+                              <option value="4">4*</option>
+                              <option value="5">5*</option>
+                            </select>
+                        </div>
+                        <div class="date">
+                            <label for="date">Ngày khởi chiếu</label>
+                            <input type="date" class="form-control" formControlName="startAt">
+                        </div>
+                        <div class="time">
+                            <label for="name">Thời lượng</label>
+                            <input type="text" class="form-control" formControlName="timeAmount">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-image form-content">
+                    <div class="main-image">
+                        <div *ngFor="let image of imageURL" class="item-image">
+                            <img [src]="image" alt="">
+                            <a (click)="deleteImage(image)"><i class="fas fa-minus"></i></a>
+                        </div>
+                    </div>
+                    <div class="image-area mb-3" *ngIf="imageArea">
+                        <div class="image">
+                            <a (click)="filePicker.click()"> <i class="fas fa-cloud-upload-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="button-image">
+                        <button mat-stroked-button type="button" class="btn btn-primary" (click)="filePicker.click()">Thêm ảnh</button>
+                        <input type="file" style="visibility: hidden" #filePicker (change)="onImagePicked($event)" multiple>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Trailer</label>
                         <input type="text" class="form-control">
                     </div>
                 </div>
             </div>
-            <div class="form-image form-content">
-                <div class="main-image">
-                    <div *ngFor="let image of imageURL" class="item-image">
-                        <img [src]="image" alt="">
-                        <a (click)="deleteImage(image)"><i class="fas fa-minus"></i></a>
-                    </div>
-                </div>
-                <div class="image-area mb-3" *ngIf="imageArea">
-                    <div class="image">
-                        <a (click)="filePicker.click()"> <i class="fas fa-cloud-upload-alt"></i></a>
-                    </div>
-                </div>
-                <div class="button-image">
-                    <button mat-stroked-button type="button" class="btn btn-primary" (click)="filePicker.click()">Thêm ảnh</button>
-                    <input type="file" style="visibility: hidden" #filePicker (change)="onImagePicked($event)" multiple>
-                </div>
+            <div class="footer-form mt-5">
+                <button mat-stroked-button type="button" class="btn btn-primary">Thêm sản phẩm</button>
             </div>
-        </div>
-        <div class="footer-form mt-3">
-            <button mat-stroked-button type="button" class="btn btn-primary">Thêm sản phẩm</button>
-        </div>
+        </form>
     </div>
 </div>

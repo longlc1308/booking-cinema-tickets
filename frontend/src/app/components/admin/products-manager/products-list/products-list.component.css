@@ -8,6 +8,14 @@
     position: relative;
 }
 
+.main-layout h3 {
+    text-align: center;
+    color: #141414;
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .header-button {
     display: flex;
     justify-content: flex-end;
@@ -70,6 +78,7 @@ table .user img {
 
 .sticky-table thead th:first-child,
 .sticky-table tbody td:first-child {
+    background-color: #eee;
     position: sticky;
     left: 0;
 }
