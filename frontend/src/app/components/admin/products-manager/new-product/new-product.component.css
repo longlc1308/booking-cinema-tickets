@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .form-layout {
+    overflow-x: hidden;
     width: 85%;
     background-color: #435c70;
     margin: 0 auto;
@@ -35,7 +35,7 @@
 }
 
 .header-title h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 30px;
@@ -66,10 +66,28 @@
     border-radius: 0;
     height: 50px;
     display: block;
-    width: 100%;
     background-color: #54657d;
     color: #fff;
     border: 0;
+}
+
+.form-group .form-custom {
+    padding: 0px 10px;
+    border-radius: 0;
+    height: 50px;
+    display: block;
+    background-color: #54657d;
+    color: #fff;
+    border: 0;
+}
+
+.form-control:focus,
+.form-custom:focus {
+    background-color: #60738e;
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 0 0.1rem rgb(180 206 233 / 50%);
+    outline: 0;
 }
 
 textarea.form-control {
@@ -80,8 +98,8 @@ textarea.form-control {
     display: flex;
 }
 
-.form-group.option div:not(:first-child) {
-    margin-left: 15px;
+.form-group.option>div:not(:first-child) {
+    margin-left: 12px;
 }
 
 .main-image {
@@ -162,6 +180,9 @@ textarea.form-control {
     }
     .form-group.option {
         display: block;
+    }
+    .form-group.option div {
+        margin-bottom: 15px;
     }
     .form-group.option div:not(:first-child) {
         margin-left: 0;

@@ -9,6 +9,9 @@ import { NewProductComponent } from './products-manager/new-product/new-product.
 import { ProductsListComponent } from './products-manager/products-list/products-list.component';
 import { OrdersManagerComponent } from './orders-manager/orders-manager.component';
 import { SitesManagerComponent } from './sites-manager/sites-manager.component';
+import { ShowtimesManagerComponent } from './showtimes-manager/showtimes-manager.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const adminRouters : Routes = [
   { path: '', component:  AdminComponent, children: [
@@ -21,6 +24,7 @@ const adminRouters : Routes = [
     { path: 'users', component:UsersManagerComponent },
     { path: 'orders', component: OrdersManagerComponent },
     { path: 'sites', component: SitesManagerComponent },
+    { path: 'showtimes', component: ShowtimesManagerComponent },
     { path: '', redirectTo: 'dashboard',  pathMatch:'full' }
   ]}
 ]
@@ -34,10 +38,13 @@ const adminRouters : Routes = [
     NewProductComponent,
     ProductsListComponent,
     OrdersManagerComponent,
-    SitesManagerComponent
+    SitesManagerComponent,
+    ShowtimesManagerComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(adminRouters)
   ]
 })

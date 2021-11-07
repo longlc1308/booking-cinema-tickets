@@ -8,50 +8,6 @@
     padding: 25px;
 }
 
-.header .title {
-    width: 300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    color: #141414;
-    font-family: "Cairo", sans-serif;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
-}
-
-.header .title::before {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 100%;
-    background: linear-gradient(to right, #f80404, #000000);
-    animation: animate 6s linear infinite;
-}
-
-@keyframes animate {
-    0% {
-        transform: rotate(0deg)
-    }
-    100% {
-        transform: rotate(360deg)
-    }
-}
-
-.header .title::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    background-color: #fcfdf0;
-}
-
-.header h3 {
-    padding-top: 15px;
-    z-index: 1;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 .select ul {
     display: flex;
     justify-content: center;
@@ -74,9 +30,9 @@
 }
 
 .btn a.active {
-    color: #fff;
-    background-color: #f32121;
-    box-shadow: 0 0 20px #f32121;
+    color: red;
+    transform: scale(1.2);
+    font-weight: bold;
     transition: all .5s;
     pointer-events: none;
 }
@@ -155,6 +111,7 @@
     cursor: pointer;
     width: calc(calc(100% / var(--columns)) - var(--spacing));
     margin-left: var(--spacing);
+    overflow: hidden;
 }
 
 .movie-item img {
@@ -169,25 +126,44 @@
     left: 0;
     width: 100%;
     padding: 15px 15px;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.movie-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.booking {
+    text-align: center;
+}
+
+.booking button {
+    padding: 5px 10px;
 }
 
 .movie-title {
     font-family: "Cairo", sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 5px;
 }
 
-.booking a {
-    font-size: 14px;
-    padding: 5px;
+.movie-item:hover .movie-button {
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
 }
 
-.user-option .btn-danger {
-    margin-right: 10px;
+.movie-item:hover .movie-title {
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-100%);
 }
 
 @media screen and (max-width: 1023px) {
@@ -196,7 +172,7 @@
         --columns: 3;
         padding: 0 25px;
     }
-    .user-option .btn-danger {
+    .user-option .btn-primary {
         margin-right: 2px;
     }
 }
@@ -207,7 +183,7 @@
         --columns: 1;
         padding: 0 25px;
     }
-    .user-option .btn-danger {
+    .user-option .btn-primary {
         margin-right: 10px;
     }
 }
