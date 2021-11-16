@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #141414c9;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title h3 {
+    cursor: pointer;
+}
+
+.header-content {
+    margin: auto 0px;
+    cursor: pointer;
+}
+
+.header-content a {
+    font-size: 18px;
+    color: #fff;
+}
+
+.header-content a span {
+    margin-right: 10px;
+    font-family: "Cairo", sans-serif;
+    font-weight: 550;
+}
+
+.body-content {
+    display: flex;
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    margin: 50px;
+    min-height: 100%;
+}
+
+.body-left {
+    width: 30%;
+    border-right: 2px solid #141414;
+    text-align: center;
+    font-family: "Cairo", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-left h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(126, 0, 0);
+}
+
+.body-left img {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 250px;
+    width: 250px
+}
+
+.body-left li {
+    margin-bottom: 10px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.body-left li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #141414;
+    text-transform: uppercase;
+    font-family: "Cairo", sans-serif;
+}
+
+.body-left li.active a {
+    font-size: 18px;
+    color: red;
+    font-weight: 600;
+}
+
+main {
+    margin-left: 40px;
+    width: calc(70% - 40px);
+}
+
+@media only screen and (max-width: 1200px) {
+    .body-content {
+        display: block;
+    }
+    .body-left {
+        width: 100%;
+        border-right: none;
+    }
+    main {
+        width: 100%;
+        margin-left: 0px
+    }
+}

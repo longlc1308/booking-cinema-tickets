@@ -25,7 +25,8 @@ const adminRouters : Routes = [
     { path: 'orders', component: OrdersManagerComponent },
     { path: 'sites', component: SitesManagerComponent },
     { path: 'showtimes', component: ShowtimesManagerComponent },
-    { path: '', redirectTo: 'dashboard',  pathMatch:'full' }
+    { path: '', redirectTo: 'dashboard',  pathMatch:'full' },
+    { path: '**', redirectTo: 'dashboard',  pathMatch:'full' },
   ]}
 ]
 

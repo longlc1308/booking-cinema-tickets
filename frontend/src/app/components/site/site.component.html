@@ -1,7 +1,6 @@
 <div class="container">
     <div class="main">
         <div class="col-main">
-            <div class="cgv-showtime-top"></div>
             <div class="theatre-city-tabs cgv-showtime-center">
                 <div class="content-list-cinema">
                     <div class="title-cgv-cinema">
@@ -26,7 +25,6 @@
                     </div>
                 </div>
             </div>
-            <div class="cgv-showtime-bottom"></div>
             <div class="theatre-list product-view" *ngIf="currentCgv">
                 <div class="heater-head">
                     <div class="home-title">
@@ -65,12 +63,8 @@
                             <div class="left-info-theater">
                                 <div class="theater-left-content">
                                     <div class="theater-address">{{currentCgv.address}}</div>
-                                    <div class="fax"><label>Fax : </label>
-                                        <div class="fax-input" style="display: inline;">{{currentCgv.fax}}</div>
-                                    </div>
-                                    <div class="hotline"><label>Hotline : </label>
-                                        <div class="fax-input" style="display: inline;">{{currentCgv.hotline}}</div>
-                                    </div>
+                                    <div class="fax"><label>Fax:</label> {{currentCgv.fax}}</div>
+                                    <div class="hotline"><label>Hotline:</label> {{currentCgv.hotline}}</div>
                                 </div>
                             </div>
                             <div class="right-info-theater">

@@ -17,15 +17,11 @@ import { LoginRegisterComponent } from './components/authentication/login-regist
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
-import { GiftCardComponent } from './components/others/gift-card/gift-card.component';
 import { GroupSaleComponent } from './components/others/group-sale/group-sale.component';
-import { MenuConcessionComponent } from './components/others/menu-concession/menu-concession.component';
-import { CgvOnlineComponent } from './components/others/cgv-online/cgv-online.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +37,7 @@ import { UserComponent } from './components/user/user.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     SafeHtmlPipe,
-    GiftCardComponent,
-    GroupSaleComponent,
-    MenuConcessionComponent,
-    CgvOnlineComponent,
-    UserComponent
+    GroupSaleComponent
   ],
   imports: [
     BrowserModule,

@@ -85,7 +85,7 @@ export class MemberShipComponent implements OnInit {
     `<div class="outer">
     <div class="inner">
     <div class="lyt-heading">CẤP ĐỘ THÀNH VIÊN</div>
-    <div class="accordion" id="accordionExample" style="width: 537px;">
+    <div class="accordion" id="accordionExample"">
     <div class="card">
     <div class="card-header" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
     <h6 class="mb-0">

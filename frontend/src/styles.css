@@ -6,6 +6,10 @@
     }
 }
 
+.btn:focus {
+    box-shadow: none;
+}
+
 html,
 body {
     height: 100%;
@@ -21,15 +25,18 @@ body {
 
 .lyt-heading {
     color: #53442d;
-    font-size: 20px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
+    font-size: 26px;
     font-weight: bold;
     margin-top: -30px;
     padding: 0 0 15px 15px;
 }
 
 .lyt-details-content {
-    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-user-content.jpg) repeat-x scroll 0 100% #fff;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     padding: 20px;
+    border-radius: 20px;
     display: inline-block;
 }
 

@@ -9,24 +9,25 @@
 }
 
 .content {
-    max-width: 980px;
     margin-top: 24px;
 }
 
 .content .sidebar {
+    width: calc(25% - 10px);
     padding-right: 10px;
-    width: 245px;
-    float: left;
+    margin-left: 20px;
+}
+
+.outlet {
+    width: 70%;
 }
 
 .block-content {
     width: 100%;
-    height: wrap;
 }
 
 .block-content ul {
     list-style: none;
-    float: left;
     padding: 0;
 }
 
@@ -35,11 +36,11 @@
     color: #fff;
     height: 34px;
     padding: 9px 18px;
-    float: left;
     width: 100%;
     margin: 2px 0;
     display: list-item;
     text-align: -webkit-match-parent;
+    margin-bottom: 5px;
 }
 
 .block-content ul li a {
@@ -64,63 +65,24 @@
     font-family: Verdana, Arial, sans-serif;
 }
 
-.main-content {
-    padding-left: 10px;
-    width: 735px;
+@media only screen and (max-width: 1200px) {
+    .content .sidebar {
+        width: calc(35% - 10px);
+        padding-right: 10px;
+        margin-left: 20px;
+    }
+    .outlet {
+        width: 60%;
+    }
 }
 
-.main-content .header {
-    margin-bottom: 16px;
-}
-
-.main-content .header h1 {
-    color: #e71a0f;
-    font-size: 32px;
-}
-
-.main-content .main .ytb-intro {
-    height: 350px;
-}
-
-.main-content .main .ytb-intro iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.main-content .main .desc {
-    margin-top: 16px;
-}
-
-.about-img-cgv {
-    float: left;
-    width: 100%;
-}
-
-.about-img-cgv ul {
-    padding: 0;
-}
-
-.about-img-cgv ul li {
-    list-style: none;
-    float: left;
-    width: 32%;
-    height: 169px;
-    border: 1px solid;
-    margin: 10px 4px;
-    box-shadow: 3px 3px 3px #333;
-    border-radius: 3px;
-}
-
-.larger-about-img img {
-    float: left;
-    width: 100%;
-    height: 169px;
-    border-radius: 3px;
-}
-
-.desc p {
-    font-family: Verdana, Arial, sans-serif;
-    color: #636363;
-    font-size: 14px;
-    line-height: 24px;
+@media only screen and (max-width: 768px) {
+    .content .sidebar {
+        width: 100%;
+        padding-right: 10px;
+        margin-left: 10px;
+    }
+    .outlet {
+        width: 100%;
+    }
 }
