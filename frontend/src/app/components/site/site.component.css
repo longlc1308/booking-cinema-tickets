@@ -1,38 +1,30 @@
-.main {
+.container {
     margin: 0 auto;
+}
+
+.main {
     margin-top: 30px;
-    width: 980px;
 }
 
 .col-main {
-    float: none;
     width: auto;
     padding: 0;
     margin-bottom: 50px;
 }
 
-.cgv-showtime-top {
-    /* float: left; */
-    width: 100%;
-    height: 43px;
-    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-top.png) no-repeat scroll center top transparent;
-}
-
 .theatre-city-tabs {
-    /* float: left; */
     width: 100%;
 }
 
 .cgv-showtime-center {
-    /* float: left; */
-    width: 100%;
-    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-center.png) repeat-y scroll center top transparent;
+    background-color: rgb(54, 51, 53);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .content-list-cinema {
-    /* float: left; */
     width: 100%;
-    padding: 17px 40px;
+    padding: 20px 50px;
 }
 
 .title-cgv-cinema {
@@ -51,18 +43,17 @@
     width: 100%;
     border-bottom: 2px solid #727171;
     border-top: 2px solid #727171;
-    padding: 6px 10px 15px;
+    padding: 6px 0px;
 }
 
 .cinemas-area ul {
     list-style: none;
-    display: inline-flex;
+    display: flex;
     padding: 0px 10px;
-    width: 100%;
+    margin: 10px 0px;
 }
 
 .cinemas-area ul li {
-    margin-top: 15px;
     width: 20%;
 }
 
@@ -76,32 +67,25 @@
 }
 
 .cinemas-list {
+    padding: 6px 0px;
     width: 100%;
-    /* background: #444242; */
-    padding: 0 0 15px 0;
 }
 
 .cinemas-list ul {
     list-style: none;
-    display: inline-flex;
+    display: flex;
     padding: 0px 10px;
-    width: 100%;
+    margin-left: -20px;
 }
 
 .cinemas-list ul li {
-    margin-top: 15px;
-    width: 25%;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .cinemas-list li span {
     color: #dbdbdb;
     font-size: 14px;
-}
-
-.cgv-showtime-bottom {
-    width: 100%;
-    height: 43px;
-    background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/cinema-showtimes-favorite-bottom.png) no-repeat scroll center top transparent;
 }
 
 .heater-head {
@@ -144,43 +128,57 @@
     margin-bottom: 30px;
 }
 
+.slideshow-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
 .theater-infomation {
     background: url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-box-content-info-theater.png) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    bottom: 0px;
+    bottom: 15px;
     color: #fdfcf0;
     display: flex !important;
     left: 0;
-    min-height: 70px;
-    padding: 15px 15px;
+    padding: 10px 15px;
     position: absolute;
     width: 100%;
     z-index: 125;
 }
 
 .theater-infomation .left-info-theater {
-    width: 68%;
+    margin-top: auto;
+    width: 60%;
 }
 
 .theater-infomation .right-info-theater {
-    width: 30%;
     border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .theater-left-content {
-    font-size: 14px;
-    overflow: hidden;
-    padding-right: 20px;
+    font-size: 13px;
+}
+
+.theater-left-content label {
+    display: inline-block;
+    font-size: 13px;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: 600;
+    user-select: none;
+    margin-bottom: 0px;
 }
 
 .theater-right-content {
-    overflow: hidden;
     padding-left: 20px;
 }
 
 .theater-right-content div {
-    clear: both;
-    float: left;
-    margin: 5px 0 15px;
+    margin: 5px 0 10px;
     width: 100%;
 }
 
@@ -188,7 +186,7 @@
     background: none repeat scroll 0 0 #e71a0f;
     border-radius: 5px;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     padding: 5px 15px;
     text-transform: uppercase;
@@ -219,14 +217,14 @@
 }
 
 .cboxLoadedContent .cboxDisplay {
-    display: block;
-    width: 980px;
-    height: 500px;
-    align-items: center;
+    /* display: block; */
+    width: 50%;
+    height: 50%;
+    margin: 50px auto;
     position: relative;
-    top: 240px;
-    left: 50%;
-    margin-left: -490px;
+    /* top: 240px;
+    left: 50%; */
+    /* margin-left: -490px; */
     z-index: 100000;
 }
 
@@ -252,4 +250,54 @@
 
 .cboxTitle {
     color: #ccc;
+}
+
+@media only screen and (max-width: 1200px) {
+    .cboxLoadedContent .cboxDisplay {
+        width: 100%;
+        height: 80%;
+        margin: 20px auto;
+        position: relative;
+        z-index: 100000;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cinemas-area ul {
+        list-style: none;
+        display: block;
+        padding: 0px 10px;
+    }
+    .cinemas-area ul li {
+        margin-top: 15px;
+        width: 100%;
+    }
+    .cinemas-list ul {
+        list-style: none;
+        display: block;
+        padding: 0px 10px;
+        margin-left: 0px;
+    }
+    .cinemas-list ul li {
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 0px;
+    }
+    .carousel-item img {
+        min-height: 100%;
+    }
+    .theater-infomation {
+        color: #141414;
+        background: none !important;
+        position: relative;
+        display: flex !important;
+        padding: 10px 15px;
+        width: 100%;
+        z-index: 125;
+    }
+    .theater-title h3 {
+        font-size: 24px;
+        color: #636363;
+        font-family: Verdana, Arial, sans-serif;
+    }
 }

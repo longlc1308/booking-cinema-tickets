@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  public RoleAdmin: boolean = true;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router
@@ -25,13 +26,13 @@ export class HeaderComponent implements OnInit {
       menu?.classList.remove("active")
     })
 
-    const subBtn = document.querySelector('.sub-btn');
-    const subMenu = document.querySelector('.sub-menu');
-    subBtn.addEventListener('click',() => {
-      subMenu.classList.toggle("open");
-    })
-    subMenu.addEventListener('click',() => {
-      subMenu.classList.remove("open")
-    })
+    // const subBtn = document.querySelector('.sub-btn');
+    // const subMenu = document.querySelector('.sub-menu');
+    // subBtn.addEventListener('click',() => {
+    //   subMenu.classList.toggle("open");
+    // })
+    // subMenu.addEventListener('click',() => {
+    //   subMenu.classList.remove("open")
+    // })
   }
 }

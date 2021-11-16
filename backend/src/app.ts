@@ -41,7 +41,7 @@ class App {
         this.express.use(express.json());
         this.express.use(cookieParser(this._secretCookie))
         this.express.use(express.urlencoded({ extended: true }));
-    }
+    }    
 
     private _loadRoutes() {
         this.express.use('/api/v1.0', router);

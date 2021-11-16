@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginRegisterComponent } from './components/authentication/login-register/login-register.component';
-import { CgvOnlineComponent } from './components/others/cgv-online/cgv-online.component';
-import { GiftCardComponent } from './components/others/gift-card/gift-card.component';
 import { GroupSaleComponent } from './components/others/group-sale/group-sale.component';
 import { HomeComponent } from './components/home/home.component';
 import { LayoutsComponent } from './components/layouts/layouts.component';
 import { MemberShipComponent } from './components/others/member-ship/member-ship.component';
-import { MenuConcessionComponent } from './components/others/menu-concession/menu-concession.component';
 import { RecruitmentComponent } from './components/others/recruitment/recruitment.component';
 import { SiteComponent } from './components/site/site.component';
 
@@ -20,7 +17,6 @@ const routes: Routes = [
       { path: 'login', component: LoginRegisterComponent },
       { path: 'site', component: SiteComponent },
       { path: 'cgv-member', component: MemberShipComponent },
-      { path: 'gift-card', component: GiftCardComponent },
       { path: 'groupsale', component: GroupSaleComponent },
       { path: 'recruitment', component: RecruitmentComponent },
       {
@@ -48,8 +44,9 @@ const routes: Routes = [
     loadChildren: () =>
     import('./components/admin/admin.module').then((m) => m.AdminModule),
   },
-  { path: 'menu-concession', component: MenuConcessionComponent },
-  { path: 'cgv-online', component: CgvOnlineComponent },
+  { path: 'user',
+    loadChildren: () =>
+    import('./components/user/user.module').then((m) => m.UserModule)},
   {
     path: '**',
     redirectTo: '',

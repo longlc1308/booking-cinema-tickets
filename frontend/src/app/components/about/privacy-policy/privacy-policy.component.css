@@ -1,15 +1,16 @@
 .main-content {
-    padding-left: 10px;
-    width: 735px;
+    padding: 0px 10px;
 }
+
 .main-content .header {
     margin-bottom: 16px;
 }
+
 .main-content .header h1 {
     color: #e71a0f;
     font-size: 32px;
 }
- 
+
 .conpany-address-cms-tap {
     text-align: center;
     background: none repeat scroll 0 0 #f2f0e4;
@@ -21,6 +22,7 @@
     margin: 0px 0px 20px 20px;
     width: 96%;
 }
+
 .cms-tap h3 {
     color: #636363;
     font-size: 16px;
@@ -28,24 +30,29 @@
     font-weight: bold;
     margin-bottom: 5px;
 }
+
 .cms-tap ul {
     list-style: none;
-    padding:0;
+    padding: 0;
 }
-.cms-tap p, .cms-tap li {
+
+.cms-tap p,
+.cms-tap li {
     color: #636363;
-    font-family: Verdana,Arial,sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 14px;
     line-height: 24px;
 }
+
 .cms-tap a {
     color: #e71a0f;
     text-decoration: none;
 }
+
 .cms-tap h5 {
     margin-left: 20px;
     color: #636363;
-    font-family: Verdana,Arial,sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 14px;
     font-weight: normal;
 }

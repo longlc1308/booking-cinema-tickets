@@ -1,0 +1,54 @@
+<div class="main-layout">
+    <div class="title">
+        <h3>Thông tin tài khoản</h3>
+    </div>
+    <div class="body">
+        <div class="main-form body-content">
+            <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" autocomplete="false" novalidate="true">
+                <div class="form-group">
+                    <p>Tên người dùng:</p>
+                    <input type="text" formControlName="name" required>
+                </div>
+                <div class="form-group">
+                    <p>Số điện thoại:</p>
+                    <input type="text" formControlName="phone" required>
+                </div>
+                <div class="form-group">
+                    <p>Email:</p>
+                    <input type="text" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <p>Giới tính:</p>
+                    <input type="text" formControlName="gender" required>
+                </div>
+                <div class="form-group">
+                    <p>Ngày sinh:</p>
+                    <input type="date" formControlName="birthday" required>
+                </div>
+                <div class="form-group">
+                    <p>Khu vực:</p>
+                    <input type="text" formControlName="area" required>
+                </div>
+                <div class="form-group">
+                    <p>Thành viên: </p>
+                    <input type="text" formControlName="member_rankpoints">
+                </div>
+                <button class="btn btn-primary">Cập nhật</button>
+            </form>
+        </div>
+        <div class="password-form body-content">
+            <h4>Thay đổi mật khẩu</h4>
+            <form action="">
+                <div class="form-group">
+                    <p>Mật khẩu mới:</p>
+                    <input type="name">
+                </div>
+                <div class="form-group">
+                    <p>Xác nhận mật khẩu mới:</p>
+                    <input type="name">
+                </div>
+                <button class="btn btn-primary">Thay đổi</button>
+            </form>
+        </div>
+    </div>
+</div>

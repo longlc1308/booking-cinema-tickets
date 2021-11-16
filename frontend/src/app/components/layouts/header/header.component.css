@@ -21,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
     padding: 0px 50px 0px 50px;
@@ -71,6 +71,10 @@ body {
     display: inline-flex;
     position: relative;
     align-items: center;
+}
+
+.navigation li a.btn:focus {
+    box-shadow: none;
 }
 
 .navigation li a.btn span {
@@ -196,7 +200,6 @@ body {
         display: none;
         position: relative;
         top: 0;
-        transform: translateX(10px);
         background: rgba(255, 255, 255, 0.1);
         border-radius: 5px;
         transition: all 1s;
@@ -204,7 +207,8 @@ body {
     }
     .menu-item .sub-menu.open {
         display: block;
-        transform: translateX(10px);
+        transform: translateX(5px);
+        transform: translateY(-5px);
     }
     .menu-item .sub-menu .sub-item {
         box-shadow: none;
