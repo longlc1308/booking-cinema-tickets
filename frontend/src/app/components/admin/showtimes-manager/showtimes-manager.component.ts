@@ -14,11 +14,11 @@ export class ShowtimesManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.showTimeForm = this._formBuilder.group({
-      movieName: ['', [Validators.required]],
-      siteName: ['', [Validators.required]],
-      startDate: ['', [Validators.required]],
-      startTime: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      movieName: [null, [Validators.required]],
+      siteName: [null, [Validators.required]],
+      startDate: [null, [Validators.required]],
+      startTime: [null, [Validators.required]],
+      price: [null, [Validators.required]],
     });
   }
 

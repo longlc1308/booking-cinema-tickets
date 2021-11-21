@@ -1,5 +1,5 @@
 export interface Site {
   id: string;
-  name: string;
+  siteName: string;
   area: string;
 }

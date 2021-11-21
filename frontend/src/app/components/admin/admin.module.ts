@@ -12,6 +12,7 @@ import { SitesManagerComponent } from './sites-manager/sites-manager.component';
 import { ShowtimesManagerComponent } from './showtimes-manager/showtimes-manager.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SafeHtmlPipeModule } from 'src/app/shared/pipes/pipe.module';
 
 const adminRouters : Routes = [
   { path: '', component:  AdminComponent, children: [
@@ -43,10 +44,11 @@ const adminRouters : Routes = [
     ShowtimesManagerComponent
   ],
   imports: [
+    SafeHtmlPipeModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(adminRouters)
+    RouterModule.forChild(adminRouters),
   ]
 })
 

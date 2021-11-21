@@ -38,14 +38,14 @@
         </div>
         <div class="password-form body-content">
             <h4>Thay đổi mật khẩu</h4>
-            <form action="">
+            <form [formGroup]="changeForm" (ngSubmit)="onChange()" autocomplete="false" novalidate="true">
                 <div class="form-group">
                     <p>Mật khẩu mới:</p>
-                    <input type="name">
+                    <input type="text" formControlName="new_pw" required>
                 </div>
                 <div class="form-group">
                     <p>Xác nhận mật khẩu mới:</p>
-                    <input type="name">
+                    <input type="text" formControlName="confirm_pw" required>
                 </div>
                 <button class="btn btn-primary">Thay đổi</button>
             </form>
