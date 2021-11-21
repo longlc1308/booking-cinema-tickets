@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { User } from './../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'

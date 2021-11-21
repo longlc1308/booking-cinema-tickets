@@ -8,6 +8,7 @@ import { MemberShipComponent } from './components/others/member-ship/member-ship
 import { RecruitmentComponent } from './components/others/recruitment/recruitment.component';
 import { SiteComponent } from './components/site/site.component';
 
+
 const routes: Routes = [
   {
     path: '',

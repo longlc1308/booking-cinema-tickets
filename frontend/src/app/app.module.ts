@@ -24,6 +24,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SafeHtmlPipeModule } from './shared/pipes/pipe.module';
 import { BookingSeatComponent } from './components/booking-seat/booking-seat.component';
 
+
+// firebase
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +56,9 @@ import { BookingSeatComponent } from './components/booking-seat/booking-seat.com
     NgbModule,
     CarouselModule,
     BrowserAnimationsModule,
-    SafeHtmlPipeModule
+    SafeHtmlPipeModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
