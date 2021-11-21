@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { mimeType } from 'src/app/shared/validators/mime-type.validator';
+import { MoviesService } from 'src/app/shared/services/movies.service';
 
 @Component({
   selector: 'app-new-product',
@@ -18,6 +19,7 @@ export class NewProductComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _location: Location,
+    private movieService: MoviesService,
   ) { }
 
   ngOnInit(): void {
@@ -66,7 +68,8 @@ export class NewProductComponent implements OnInit {
     new_movie.append("trailer", this.movieForm.value.trailer);
     if(this.imagePreview){
       new_movie.append("image", this.movieForm.value.image, this.movieForm.value.movieName);
-      console.log(new_movie);
+      this.movieService.addMovie(new_movie);
+      this.movieForm.reset();
     }
     else{
       console.log("chua up anh");

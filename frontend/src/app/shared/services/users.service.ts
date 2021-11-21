@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from './../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,6 +55,11 @@ export class UsersService {
     this.httpClient.post<{token: string, expiresIn: number, userId: string, role: string}>(this.API_user + '/login', User).subscribe((result) => {
       console.log(result);
     })
+  }
+
+  // login with google
+  async loginWithGoogle(){
+    // const googleProvider = new firebase.auth.GoogleAuthProvider()
   }
 
   //update user data
