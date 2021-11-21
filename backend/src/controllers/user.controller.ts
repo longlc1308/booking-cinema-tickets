@@ -19,7 +19,7 @@ export const signup = async (req: Request, res: Response) => {
             phone: req.body.phone,
             gender: req.body.gender,
             reg_date: new Date(),
-            date_of_birth: new Date(),
+            date_of_birth: req.body.date_of_birth,
             area: req.body.area,
             role: req.body.role,
             member_rankpoints: req.body.member_rankpoints,
