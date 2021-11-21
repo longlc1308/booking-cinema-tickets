@@ -14,7 +14,7 @@ class App {
         serverSelectionTimeoutMS: 5000,
         autoIndex: false
     }
-    private _mongooseUrl = 'mongodb+srv://adlongluuc:73wmA2dyktLuXJ4a@bookingcinema.4k75s.mongodb.net/cinema';
+    private _mongooseUrl = 'mongodb+srv://adlongluuc:tdQ6StlagYIi5xCc@bookingcinema.4k75s.mongodb.net/cinema';
     private readonly _secretCookie = 'fuckingshit';
     constructor() {
         this.express = express();
