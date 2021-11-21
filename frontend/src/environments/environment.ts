@@ -5,6 +5,15 @@
 export const environment = {
   production: false,
   api_url: 'http://localhost:3000/api/v1.0',
+  firebaseConfig: {
+    apiKey: "AIzaSyAs-NUfeMYw0Qjiw5WXnndRcQiA9z8rLt4",
+    authDomain: "booking-cinema-tickets.firebaseapp.com",
+    projectId: "booking-cinema-tickets",
+    storageBucket: "booking-cinema-tickets.appspot.com",
+    messagingSenderId: "413306244303",
+    appId: "1:413306244303:web:f846c0e6ef36169a5ffbba",
+    measurementId: "G-3QD3LHMJ8P"
+  }
 };
 
 /*
