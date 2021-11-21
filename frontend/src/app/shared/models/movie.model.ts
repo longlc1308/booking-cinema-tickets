@@ -1,17 +1,16 @@
 export interface Movie {
     id: string;
-    name: string;
+    movieName: string;
     idMovie: number;
-    directors: string;
-    actors: string;
-    types: string;
-    languages: string;
-    description: string;
-    rated: string;
+    director: string;
+    actor: string;
+    type: string;
+    language: string;
+    rated: number;
     startAt: string;
     timeAmount: number;
-    image: string;
     trailer: string;
+    imageURL: string;
 }
 
 

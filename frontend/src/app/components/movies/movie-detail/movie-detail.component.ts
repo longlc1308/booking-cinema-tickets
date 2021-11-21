@@ -23,10 +23,10 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSelectImage(url: string, index: string) {
-    this.imageUrl = url;
-    this.oldId = index;
-  }
+  // onSelectImage(url: string, index: string) {
+  //   this.imageUrl = url;
+  //   this.oldId = index;
+  // }
 
   showtime(){
     this.router.navigate(['movies/detail/showtime'])

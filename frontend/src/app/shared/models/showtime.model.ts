@@ -3,5 +3,5 @@ export interface showTime {
   siteName: string;
   startDate: string;
   startTime: string;
-  price: Number;
+  price: string;
 }

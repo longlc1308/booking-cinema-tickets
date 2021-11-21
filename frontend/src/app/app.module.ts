@@ -16,12 +16,13 @@ import { RecruitmentComponent } from './components/others/recruitment/recruitmen
 import { LoginRegisterComponent } from './components/authentication/login-register/login-register.component';
 import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
-import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 import { GroupSaleComponent } from './components/others/group-sale/group-sale.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SafeHtmlPipeModule } from './shared/pipes/pipe.module';
+import { BookingSeatComponent } from './components/booking-seat/booking-seat.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginRegisterComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    SafeHtmlPipe,
-    GroupSaleComponent
+    GroupSaleComponent,
+    BookingSeatComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     NgbModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SafeHtmlPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

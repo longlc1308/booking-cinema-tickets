@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserInfoComponent implements OnInit {
   public updateForm: FormGroup;
+  public changeForm: FormGroup;
   constructor(
     private _formBuilder: FormBuilder,
   ) { }
@@ -22,9 +23,18 @@ export class UserInfoComponent implements OnInit {
       area: ['', [Validators.required]],
       member_rankpoints: [{value: '', disabled: true}, [Validators.required]],
     });
+
+    this.changeForm = this._formBuilder.group({
+      new_pw: ['', [Validators.required]],
+      confirm_pw: ['', [Validators.required]],
+    })
   }
 
   onUpdate(){
+
+  }
+
+  onChange(){
 
   }
 }

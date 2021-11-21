@@ -9,74 +9,95 @@
                 <div class="form-text form-content">
                     <div class="form-group mb-3">
                         <label for="name">Tên sản phẩm</label>
-                        <input type="text" class="form-control" formControlName="name" required>
+                        <input type="text" class="form-control" formControlName="movieName" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.movieName.errors?.required">Nhập tên phim</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="id">Mã phim</label>
                         <input type="text" class="form-control" formControlName="idMovie" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.idMovie.errors?.required">Nhập tên mã phim</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Đạo diễn</label>
-                        <input type="text" class="form-control" formControlName="directors" required>
+                        <input type="text" class="form-control" formControlName="director" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.director.errors?.required">Nhập tên đạo diễn</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Diễn viên</label>
-                        <input type="text" class="form-control" formControlName="actors" required>
+                        <input type="text" class="form-control" formControlName="actor" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.actor.errors?.required">Nhập tên diễn viên</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="name">Thể loại</label>
-                        <input type="text" class="form-control" formControlName="types" required>
+                        <input type="text" class="form-control" formControlName="type" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.type.errors?.required">Nhập thể loại</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="name">Mô tả</label>
-                        <textarea class="form-control validate" rows="4" formControlName="description" required></textarea>
+                        <label for="name">Ngôn ngữ</label>
+                        <input type="text" class="form-control" formControlName="language" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.language.errors?.required">Nhập ngôn ngữ</small>
+                        </div>
                     </div>
                     <div class="form-group mb-3 option">
                         <div class="rate">
                             <label for="rate">Đánh giá</label>
-                            <select id="rate" class="form-custom" formControlName="rated">
+                            <select id="rate" class="form-custom" formControlName="rated" required>
                               <option selected disabled>Rating</option>
-                              <option value="1">1*</option>
-                              <option value="2">2*</option>
-                              <option value="3">3*</option>
-                              <option value="4">4*</option>
-                              <option value="5">5*</option>
+                              <option *ngFor="let rating of rating" value="{{rating}}">{{rating}}*</option>
                             </select>
+                            <div *ngIf="showValidateSignIn">
+                                <small class="form-text text-info" *ngIf="movieForm.controls.rated.errors?.required">Nhập đánh giá</small>
+                            </div>
                         </div>
                         <div class="date">
                             <label for="date">Ngày khởi chiếu</label>
-                            <input type="date" class="form-control" formControlName="startAt">
+                            <input type="date" class="form-control" formControlName="startAt" required>
+                            <div *ngIf="showValidateSignIn">
+                                <small class="form-text text-info" *ngIf="movieForm.controls.startAt.errors?.required">Nhập ngày khởi chiếu</small>
+                            </div>
                         </div>
                         <div class="time">
                             <label for="name">Thời lượng</label>
-                            <input type="text" class="form-control" formControlName="timeAmount">
+                            <input type="text" class="form-control" formControlName="timeAmount" required>
+                            <div *ngIf="showValidateSignIn">
+                                <small class="form-text text-info" *ngIf="movieForm.controls.timeAmount.errors?.required">Nhập thời lượng</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Trailer</label>
+                        <input type="text" class="form-control" formControlName="trailer" required>
+                        <div *ngIf="showValidateSignIn">
+                            <small class="form-text text-info" *ngIf="movieForm.controls.trailer.errors?.required">Nhập link trailer</small>
                         </div>
                     </div>
                 </div>
                 <div class="form-image form-content">
-                    <div class="main-image">
-                        <div *ngFor="let image of imageURL" class="item-image">
-                            <img [src]="image" alt="">
-                            <a (click)="deleteImage(image)"><i class="fas fa-minus"></i></a>
-                        </div>
-                    </div>
-                    <div class="image-area mb-3" *ngIf="imageArea">
-                        <div class="image">
-                            <a (click)="filePicker.click()"> <i class="fas fa-cloud-upload-alt"></i></a>
-                        </div>
-                    </div>
-                    <div class="button-image">
+                    <div class="button-image mt-4">
                         <button mat-stroked-button type="button" class="btn btn-primary" (click)="filePicker.click()">Thêm ảnh</button>
-                        <input type="file" style="visibility: hidden" #filePicker (change)="onImagePicked($event)" multiple>
+                        <input type="file" style="visibility: hidden" #filePicker (change)="onImagePicked($event)" multiple accept="image/x-png,image/gif,image/jpeg" />
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="name">Trailer</label>
-                        <input type="text" class="form-control">
+                    <div class="main-image">
+                        <div class="item-image" *ngIf="imagePreview !== '' && imagePreview">
+                            <img [src]="imagePreview" alt="">
+                            <a (click)="deleteImage()"><i class="fas fa-times"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="footer-form mt-5">
-                <button mat-stroked-button type="button" class="btn btn-primary">Thêm sản phẩm</button>
+                <button mat-stroked-button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
             </div>
         </form>
     </div>
