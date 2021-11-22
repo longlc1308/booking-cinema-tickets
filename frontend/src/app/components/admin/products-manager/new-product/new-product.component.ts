@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { mimeType } from 'src/app/shared/validators/mime-type.validator';
-import { MoviesService } from 'src/app/shared/services/movies.service';
+import { MoviesService } from 'src/app/shared/services/movie.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-new-product',
@@ -34,7 +35,7 @@ export class NewProductComponent implements OnInit {
       startAt: [null, [Validators.required]],
       timeAmount: [null, [Validators.required]],
       trailer: [null, [Validators.required]],
-      imageURL: [null, [Validators.required]],
+      imageURL: [null],
     });
   }
 
@@ -52,27 +53,53 @@ export class NewProductComponent implements OnInit {
   onAdd(){
     if(this.movieForm.invalid){
       this.showValidateSignIn = true
-      console.log("sai roi");
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+      })
       return;
     }
-    const new_movie = new FormData();
-    new_movie.append("movieName", this.movieForm.value.movieName);
-    new_movie.append("idMovie", this.movieForm.value.idMovie);
-    new_movie.append("director", this.movieForm.value.director);
-    new_movie.append("actor", this.movieForm.value.actor);
-    new_movie.append("type", this.movieForm.value.type);
-    new_movie.append("language", this.movieForm.value.language);
-    new_movie.append("rated", this.movieForm.value.rated);
-    new_movie.append("startAt", this.movieForm.value.startAt);
-    new_movie.append("timeAmount", this.movieForm.value.timeAmount);
-    new_movie.append("trailer", this.movieForm.value.trailer);
     if(this.imagePreview){
-      new_movie.append("image", this.movieForm.value.image, this.movieForm.value.movieName);
-      this.movieService.addMovie(new_movie);
-      this.movieForm.reset();
+      this.movieService.createMovie(
+        this.movieForm.value.movieName,
+        this.movieForm.value.idMovie,
+        this.movieForm.value.director,
+        this.movieForm.value.actor,
+        this.movieForm.value.type,
+        this.movieForm.value.language,
+        this.movieForm.value.rated,
+        this.movieForm.value.startAt,
+        this.movieForm.value.timeAmount,
+        this.movieForm.value.trailer,
+        this.movieForm.value.imageURL
+      ).subscribe(
+        (result) => {
+        console.log(result);
+        this.movieForm.reset();
+        this.imagePreview = null;
+        Swal.fire({
+          icon: 'success',
+          title: result.msg,
+          showConfirmButton: true,
+          timer: 1500
+        })
+        },
+        (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: error.msg,
+            showConfirmButton: true,
+            timer: 1500
+          })
+        })
     }
     else{
-      console.log("chua up anh");
+      Swal.fire({
+        icon: 'error',
+        title: 'Chưa tải ảnh lên',
+        text: 'Vui lòng tải ảnh lên!',
+      })
     }
   }
 

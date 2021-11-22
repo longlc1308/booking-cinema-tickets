@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login-register',
@@ -13,6 +16,8 @@ export class LoginRegisterComponent implements OnInit {
   showValidateSignUp: boolean = false;
   constructor(
     private _formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -57,16 +62,41 @@ export class LoginRegisterComponent implements OnInit {
     }
     else {
       console.log(this.signInForm.value);
-
     }
   }
 
   onSignUp(){
     if(this.signUpForm.invalid){
       this.showValidateSignUp = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+      })
     }
     else{
       console.log(this.signUpForm.value);
+      this.authService.createUser(
+        this.signUpForm.value.name,
+        this.signUpForm.value.phone,
+        this.signUpForm.value.email,
+        this.signUpForm.value.password,
+        this.signUpForm.value.birthday,
+        this.signUpForm.value.gender,
+        this.signUpForm.value.area
+      ).subscribe((result) => {
+        console.log(result);
+        Swal.fire({
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
+      })
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-showtimes-manager',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ShowtimesManagerComponent implements OnInit {
   public showTimeForm: FormGroup;
+  showValidateSignIn: boolean = false;
   constructor(
     private _formBuilder: FormBuilder,
   ) { }
@@ -23,6 +25,16 @@ export class ShowtimesManagerComponent implements OnInit {
   }
 
   onAdd(){
+    if(this.showTimeForm.invalid){
+      this.showValidateSignIn = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+      })
+      return
+    }
+    console.log('up thanh cong')
   }
 
 }

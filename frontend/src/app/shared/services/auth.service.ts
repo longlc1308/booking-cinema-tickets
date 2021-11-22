@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from './../models/user.model';
+import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
@@ -10,12 +10,12 @@ import firebase from 'firebase/compat/app';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class AuthService {
   private today = new Date();
-  private readonly API_user = environment.api_url + '/users';
+  private readonly API_user = environment.api_url + '/user';
   private token: string;
   private userId: string;
-  // private role: string;
+  private role: string;
   private isUserAuthenticated: boolean = false;
   public authStatus = new Subject<boolean>();
   public tokenTimer: any;
@@ -23,6 +23,7 @@ export class UsersService {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
+    public afAuth: AngularFireAuth,
   ) { }
 
   // signup
@@ -39,13 +40,7 @@ export class UsersService {
       role: "Member",
       member_rankpoints: 0,
     }
-    this.httpClient.post(this.API_user + '/signup', user).subscribe((result) => {
-      console.log(result);
-      this.router.navigate(['/']);
-    },
-    (error) => {
-      console.log(error);
-    })
+    return this.httpClient.post(this.API_user + '/signup', user)
   }
 
   // login
@@ -56,12 +51,35 @@ export class UsersService {
     }
     this.httpClient.post<{token: string, expiresIn: number, userId: string, role: string}>(this.API_user + '/login', User).subscribe((result) => {
       console.log(result);
+      this.token = result.token;
+      this.role = result.role;
+      if(this.token){
+        const expiresInDuration = result.expiresIn;
+        this.setAuthTimer(expiresInDuration);
+        this.userId = result.userId;
+        this.authStatus.next(true);
+        this.isUserAuthenticated = true;
+        const now = new Date();
+        const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
+        this.saveAuthData(this.token, expirationDate, this.userId, this.role);
+      }
+    },
+    (error) => {
+      console.log(error);
     })
   }
 
   // login with google
   async loginWithGoogle(){
-    // const googleProvider = new firebase.auth.GoogleAuthProvider()
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    const User = await this.afAuth.signInWithPopup(googleProvider);
+    const new_User = {
+      name: User.user?.displayName,
+      email: User.user?.email,
+      reg_date: this.today,
+      role: 'Member',
+      member_rankpoints: 0,
+    }
   }
 
   //update user data

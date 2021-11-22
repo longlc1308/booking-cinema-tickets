@@ -10,7 +10,7 @@ export const signup = async (req: Request, res: Response) => {
         validationResult(req).throw();
         const existed_user = await User.findOne({email: req.body.email})
         if(existed_user) {
-            return res.status(400).json({errors: 'Email Existed'});
+            return res.status(400).json({msg: 'Email đã tồn tại'});
         }
         const user = new User({
             email: req.body.email,
@@ -31,9 +31,9 @@ export const signup = async (req: Request, res: Response) => {
             httpOnly: true,
             signed: true,
         })
-        return res.status(200).json({success: 1, errors:null})
+        return res.status(200).json({msg: 'Đăng ký thành công'})
     }catch(err) {
-        return res.status(400).json({success:0, ...err})
+        return res.status(400).json({msg: 'Đăng ký không thành công'})
     }
 }
 
@@ -65,7 +65,7 @@ export const login = async (req: Request, res: Response) => {
             });
         })
     }catch(err){
-        return res.status(400).json({success:0, ...err})
+        return res.status(400).json({msg: 'Đăng nhập không thành công'})
     }
 }
 
@@ -92,4 +92,16 @@ export const changePassword = async (req: IGETJwtInfoRequest, res: Response) => 
     } catch(error) {
         return res.status(400).json({success: 0, ...error})
     }
+}
+
+
+export const fetchUsers = (req: Request, res: Response) => {
+    User.find().then((user) => {
+        res.status(200).json({
+            data: user
+        })
+    })
+    .catch((error) => {
+        return res.status(400).json({success: 0, ...error})
+    })
 }
