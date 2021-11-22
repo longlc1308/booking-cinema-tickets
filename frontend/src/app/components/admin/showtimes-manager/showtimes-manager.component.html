@@ -15,6 +15,9 @@
                           <option value="4">4*</option>
                           <option value="5">5*</option>
                     </select>
+                    <div *ngIf="showValidateSignIn">
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.movieName.errors?.required">Nhập tên phim</small>
+                    </div>
                 </div>
                 <div class="cinema-site form-group mb-3">
                     <label for="cinema-site">Cụm rạp</label>
@@ -26,18 +29,30 @@
                           <option value="4">4*</option>
                           <option value="5">5*</option>
                     </select>
+                    <div *ngIf="showValidateSignIn">
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.siteName.errors?.required">Nhập tên rạp</small>
+                    </div>
                 </div>
                 <div class="startDate form-group mb-3">
                     <label for="startDate">Ngày chiếu</label>
                     <input type="date" class="form-control" formControlName="startDate" required>
+                    <div *ngIf="showValidateSignIn">
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.startDate.errors?.required">Nhập ngày chiếu</small>
+                    </div>
                 </div>
                 <div class="startTime form-group mb-3">
                     <label for="startTime">Giờ chiếu</label>
                     <input type="time" class="form-control" formControlName="startTime" required>
+                    <div *ngIf="showValidateSignIn">
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.startTime.errors?.required">Nhập giờ chiếu</small>
+                    </div>
                 </div>
                 <div class="form-group mb-3">
                     <label for="price">Giá vé</label>
                     <input type="text" class="form-control" placeholder="Giá vé" formControlName="price" required>
+                    <div *ngIf="showValidateSignIn">
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.price.errors?.required">Nhập giá vé</small>
+                    </div>
                 </div>
                 <div class="footer-form mt-5">
                     <button mat-stroked-button type="submit" class="btn btn-primary">Thêm lịch chiếu</button>

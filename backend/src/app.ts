@@ -3,6 +3,8 @@ import router from "./routers/index.route";
 import bluebird from "bluebird";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+import path from "path";
 
 
 class App {
@@ -41,6 +43,8 @@ class App {
         this.express.use(express.json());
         this.express.use(cookieParser(this._secretCookie))
         this.express.use(express.urlencoded({ extended: true }));
+        this.express.use(cors());
+        this.express.use("/images", express.static(path.join("images")));
     }    
 
     private _loadRoutes() {

@@ -31,7 +31,12 @@ const fileValidator = (req: Request, file: Express.Multer.File, cb: FileFilterCa
 
 const storage: StorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../public/movies");
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error('Invalid mime type');
+    if (isValid) {
+        error = null;
+    }
+    cb(error, 'src/images');
   },
   filename: (req, file, cb) => {
     const decodedName = unidecode(file.originalname);
@@ -43,8 +48,8 @@ const storage: StorageEngine = multer.diskStorage({
 
 export const upload =  multer({
     fileFilter: fileValidator,
-     storage: storage,
-     limits: {
+    storage: storage,
+    limits: {
         fileSize: 1024 * 1024 * 20, // we are allowing only 10 MB per file
-     },
+    },
 }) as Multer
