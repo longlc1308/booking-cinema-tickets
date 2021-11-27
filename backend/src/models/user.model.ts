@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import argon2 from "argon2";
+const uniqueValidator = require('mongoose-unique-validator');
 
 
 export type UserDocument =  mongoose.Document & {
@@ -82,5 +83,7 @@ userSchema.methods.compareHash = async function (validateCode: string, newPasswo
         return cb(error, null)
     }
 }
+
+mongoose.plugin(uniqueValidator)
 
 export const User = mongoose.model<UserDocument>("User", userSchema, "users");

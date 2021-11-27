@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { mimeType } from 'src/app/shared/validators/mime-type.validator';
-import { MoviesService } from 'src/app/shared/services/movie.service';
+import { MovieService } from 'src/app/shared/services/movie.service';
 import Swal from "sweetalert2";
 
 @Component({
@@ -15,12 +15,12 @@ export class NewProductComponent implements OnInit {
   showValidateSignIn: boolean = false;
   imagePreview: string = null;
 
-  public rating: string [] = ['1', '2', '3', '4', '5']
+  public rating: string [] = ['0','13', '16', '18']
 
   constructor(
     private _formBuilder: FormBuilder,
     private _location: Location,
-    private movieService: MoviesService,
+    private movieService: MovieService,
   ) { }
 
   ngOnInit(): void {

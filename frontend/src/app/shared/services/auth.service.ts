@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from 'firebase/compat/app';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -49,8 +50,7 @@ export class AuthService {
       email: email,
       password: password,
     }
-    this.httpClient.post<{token: string, expiresIn: number, userId: string, role: string}>(this.API_user + '/login', User).subscribe((result) => {
-      console.log(result);
+    this.httpClient.post<{token: string, expiresIn: number, userId: string, role: string, msg: string}>(this.API_user + '/login', User).subscribe((result) => {
       this.token = result.token;
       this.role = result.role;
       if(this.token){
@@ -63,9 +63,24 @@ export class AuthService {
         const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
         this.saveAuthData(this.token, expirationDate, this.userId, this.role);
       }
+      Swal.fire({
+        icon: 'success',
+        title: result.msg,
+        showConfirmButton: true,
+        timer: 1500
+      })
+      setTimeout(() =>{
+        this.router.navigate(['/'])
+      }, 2000)
     },
-    (error) => {
-      console.log(error);
+    (err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+        showConfirmButton: true,
+        timer: 1500
+      })
     })
   }
 
@@ -125,7 +140,7 @@ export class AuthService {
   }
 
   private setAuthTimer(duration: number) {
-    console.log('setting timer: ' + duration)
+    console.log('setting time: ' + duration)
     this.tokenTimer = setTimeout(() => {
       this.logOut()
     }, duration * 1000)

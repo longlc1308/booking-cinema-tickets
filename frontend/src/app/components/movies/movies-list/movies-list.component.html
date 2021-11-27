@@ -23,81 +23,17 @@
             </div>
         </div>
         <div class="movies">
-            <div class="movie-item">
-                <img src="../../../assets/images/series/end-game.jpg" alt="">
+            <div class="movie-item" *ngFor="let movie of movies; let i = index">
+                <img [src]="movie.imageURL" alt="" [routerLink]="['/movies', movie.slug]">
                 <div class="movie-content">
                     <div class="movie-title">
-                        Avengers: End Game
+                        {{movie.movieName}}
                     </div>
                 </div>
                 <div class="movie-button">
                     <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="../../../assets/images/series/blood-shot.jpg" alt="">
-                <div class="movie-content">
-                    <div class="movie-title">
-                        Avengers
-                    </div>
-                </div>
-                <div class="movie-button">
-                    <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="../../../assets/images/series/bat-man.jpg" alt="">
-                <div class="movie-content">
-                    <div class="movie-title">
-                        Avengers
-                    </div>
-                </div>
-                <div class="movie-button">
-                    <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="../../../assets/images/series/end-game.jpg" alt="" routerLink='./detail'>
-                <div class="movie-content">
-                    <div class="movie-title">
-                        Avengers
-                    </div>
-                </div>
-                <div class="movie-button">
-                    <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="../../../assets/images/series/end-game.jpg" alt="">
-                <div class="movie-content">
-                    <div class="movie-title">
-                        Avengers
-                    </div>
-                </div>
-                <div class="movie-button">
-                    <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="../../../assets/images/series/end-game.jpg" alt="">
-                <div class="movie-content">
-                    <div class="movie-title">
-                        Avengers
-                    </div>
-                </div>
-                <div class="movie-button">
-                    <div class="booking">
-                        <button class="btn btn-danger">Đặt vé</button>
+                        <button class="btn btn-danger" style="margin-right: 10px;">Trailer</button>
+                        <button class="btn btn-success" style="margin-left: 10px;"><i class="fas fa-ticket-alt"></i>&nbsp;Đặt vé</button>
                     </div>
                 </div>
             </div>

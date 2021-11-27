@@ -7,8 +7,7 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./users-manager.component.css']
 })
 export class UsersManagerComponent implements OnInit {
-  users: any[] = []
-  ;
+  users: any[] = [];
   constructor(
     private userService: UserService,
   ) { }

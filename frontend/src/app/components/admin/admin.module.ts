@@ -13,6 +13,7 @@ import { ShowtimesManagerComponent } from './showtimes-manager/showtimes-manager
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SafeHtmlPipeModule } from 'src/app/shared/pipes/pipe.module';
+import { MatSelectModule } from '@angular/material/select';
 
 const adminRouters : Routes = [
   { path: '', component:  AdminComponent, children: [
@@ -45,6 +46,7 @@ const adminRouters : Routes = [
   ],
   imports: [
     SafeHtmlPipeModule,
+    MatSelectModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

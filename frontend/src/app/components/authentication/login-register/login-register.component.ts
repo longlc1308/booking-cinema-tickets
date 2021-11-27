@@ -59,9 +59,14 @@ export class LoginRegisterComponent implements OnInit {
   onSignIn(){
     if(this.signInForm.invalid){
       this.showValidateSignIn = true;
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+      })
     }
     else {
-      console.log(this.signInForm.value);
+      this.authService.logIn(this.signInForm.value.email, this.signInForm.value.password);
     }
   }
 
@@ -92,7 +97,9 @@ export class LoginRegisterComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        this.router.navigate(['/']);
+        setTimeout(() => {
+          this.router.navigate(['/'])
+        }, 2000)
       },
       (error) => {
         console.log(error);

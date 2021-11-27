@@ -54,7 +54,7 @@
                             <label for="rate">Đánh giá</label>
                             <select id="rate" class="form-custom" formControlName="rated" required>
                               <option selected disabled>Rating</option>
-                              <option *ngFor="let rating of rating" value="{{rating}}">{{rating}}*</option>
+                              <option *ngFor="let rating of rating" value="{{rating}}">{{rating}}+</option>
                             </select>
                             <div *ngIf="showValidateSignIn">
                                 <small class="form-text text-info" *ngIf="movieForm.controls.rated.errors?.required">Nhập đánh giá</small>

@@ -1,12 +1,15 @@
 * {
     box-sizing: border-box;
-    font-family: "Cairo", sans-serif;
 }
 
 .container {
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 60px;
+}
+
+.back a i {
+    font-size: 32px;
 }
 
 .header {
@@ -41,6 +44,7 @@
 .movie-image {
     width: 30%;
     margin: 0px var(--spacing);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .movie-content {
@@ -73,7 +77,8 @@
     width: 100%;
 }
 
-.select-image {
+
+/* .select-image {
     display: flex;
     flex-wrap: wrap;
     margin: 10px 0px;
@@ -97,7 +102,7 @@
 
 .select-image .active {
     opacity: 1;
-}
+} */
 
 .movie-button {
     display: flex;
@@ -105,6 +110,21 @@
 
 .movie-button button:first-child {
     margin-right: 10px;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-content button {
+    position: absolute;
+    right: 10px;
+}
+
+.modal-content button span {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 1366px) {
@@ -140,7 +160,8 @@
         margin-left: 0px;
     }
     .movie-image>img {
-        height: 550px;
+        height: 650px;
+        margin-bottom: 30px;
     }
     .movie-image {
         width: 100%;

@@ -3,9 +3,9 @@
         <div class="header">
             <h3>Nội dung phim</h3>
         </div>
-        <div class="movie">
+        <div class="movie" *ngIf="data">
             <div class="movie-image">
-                <img id="featured" [src]="imageUrl" alt="">
+                <img id="featured" [src]="data.imageURL" alt="">
                 <!-- <div class="select-image">
                     <div *ngFor="let image of imagesList; let i = index" (mouseover)="onSelectImage(image.src, i)">
                         <img [ngClass]="{active: i == oldId}" class="thumbnail" src="{{image.src}}" alt="">
@@ -14,19 +14,37 @@
             </div>
             <div class="movie-content">
                 <div class="movie-title">
-                    <h4>Batman</h4>
+                    <h4>{{data.movieName}}</h4>
                 </div>
                 <div class="movie-text">
-                    <p><b>Đạo diễn: </b> Lee Yong Zoo</p>
-                    <p><b>Diễn viên: </b> Gong Yoo, Park Bo Gum, Jo Woo Jin, Jang Young Nam, Park Byung Eun</p>
-                    <p><b>Thể loại: </b> Hành Động, Khoa Học Viễn Tưởng, Tâm Lý</p>
-                    <p><b>Khởi chiếu: </b> 15/04/2021</p>
-                    <p><b>Thời lượng: </b>114 phút</p>
-                    <p><b>Ngôn ngữ: </b> Tiếng Hàn - Phụ đề Tiếng Việt</p>
+                    <p><b>Đạo diễn: </b>{{data.director}}</p>
+                    <p><b>Diễn viên: </b>{{data.actor}}</p>
+                    <p><b>Thể loại: </b>{{data.type}}</p>
+                    <p><b>Khởi chiếu: </b>{{data.startAt | date: 'dd-MM-yyyy'}}</p>
+                    <p><b>Thời lượng: </b>{{data.timeAmount}} phút</p>
+                    <p><b>Ngôn ngữ: </b>{{data.language}}</p>
                 </div>
                 <div class="movie-button">
-                    <button class="btn btn-danger">Trailer</button>
-                    <button class="btn btn-danger" (click)="showtime()">Đặt vé</button>
+                    <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#exampleModalCenter">Trailer</button>
+                    <button class="btn btn-success" (click)="showtime()"><i class="fas fa-ticket-alt"></i>&nbsp;Đặt vé</button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Body-->
+                        <div class="modal-body mb-0 p-0">
+                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                                <iframe class="embed-responsive-item" [src]="data.trailer | safe: 'resourceUrl'" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--/.Content-->
                 </div>
             </div>
         </div>

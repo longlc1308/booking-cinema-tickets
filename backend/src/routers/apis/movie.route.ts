@@ -5,7 +5,8 @@ import * as movieController from "../../controllers/movie.controller";
 
 route.post("/", upload.single('imageURL'), movieController.createMovie);
 route.delete("/", movieController.deleteMovie);
-route.get("/", movieController.fetchMovie);
+route.get("/:slug", movieController.fetchMovie);
+route.get("/", movieController.fetchMovies);
 
 
 export const movieRoutes = route;
