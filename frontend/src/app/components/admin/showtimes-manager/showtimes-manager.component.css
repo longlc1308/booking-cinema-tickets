@@ -54,6 +54,14 @@
     outline: 0;
 }
 
+.form-group .mat-form-field {
+    width: 100%;
+}
+
+.form-control .mat-form-field mat-label {
+    color: #fff;
+}
+
 .btn-primary {
     font-family: "Cairo", sans-serif;
     width: 100%;

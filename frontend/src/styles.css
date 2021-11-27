@@ -221,3 +221,21 @@ h6 span {
     position: absolute;
     left: 5px;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-select-value {
+    color: #fff;
+}
+
+.mat-form-field-label {
+    color: red;
+}

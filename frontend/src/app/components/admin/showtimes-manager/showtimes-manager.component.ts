@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MovieService } from 'src/app/shared/services/movie.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,9 +10,12 @@ import Swal from 'sweetalert2';
 })
 export class ShowtimesManagerComponent implements OnInit {
   public showTimeForm: FormGroup;
+  public movies: any;
   showValidateSignIn: boolean = false;
+  cgvSites = ['CGV Vincom Center Bà Triệu','CGV Vincom Royal City','CGV Hồ Gươm Plaza','CGV Hùng Vương Plaza','CGV Crescent Mall','CGV Pandora City']
   constructor(
     private _formBuilder: FormBuilder,
+    private movieService: MovieService,
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +26,15 @@ export class ShowtimesManagerComponent implements OnInit {
       startTime: [null, [Validators.required]],
       price: [null, [Validators.required]],
     });
+    this.fetchMovies();
+  }
+  fetchMovies(){
+    this.movieService.getMovieName();
+    const subscription = this.movieService.fetchMoviesUpdated().subscribe((data) => {
+      this.movies = data.movies;
+      console.log(this.movies);
+      subscription.unsubscribe();
+    })
   }
 
   onAdd(){
@@ -34,7 +47,8 @@ export class ShowtimesManagerComponent implements OnInit {
       })
       return
     }
-    console.log('up thanh cong')
+    console.log('up thanh cong');
+    console.log(this.showTimeForm.value)
   }
 
 }

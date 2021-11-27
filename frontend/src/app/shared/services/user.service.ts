@@ -11,8 +11,8 @@ import { Subject } from 'rxjs';
 })
 export class UserService {
   private readonly API_user = environment.api_url + '/user';
-  private users: any = [];
-  private usersUpdated = new Subject<{ users: any }>();
+  private users: User[] = [];
+  private usersUpdated = new Subject<{ users: User[] }>();
 
   constructor(
     private httpClient: HttpClient,

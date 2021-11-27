@@ -44,7 +44,7 @@ class App {
         this.express.use(cookieParser(this._secretCookie))
         this.express.use(express.urlencoded({ extended: true }));
         this.express.use(cors());
-        this.express.use("/images", express.static(path.join("images")));
+        this.express.use("/images", express.static(path.join("src/images")));
     }    
 
     private _loadRoutes() {

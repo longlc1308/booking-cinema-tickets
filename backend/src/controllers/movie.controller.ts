@@ -8,6 +8,7 @@ export const createMovie = async (req: Request, res: Response) => {
         if(movieExist) {
             return res.status(400).json({msg: 'Phim đã tồn tại'})
         }
+        const url = req.protocol + '://' + req.get('host');
         const movie = new Movie({
             movieName: req.body.movieName,
             idMovie: req.body.idMovie,
@@ -19,7 +20,7 @@ export const createMovie = async (req: Request, res: Response) => {
             startAt: req.body.startAt,
             timeAmount: req.body.timeAmount,
             trailer: req.body.trailer,
-            imageURL: '/images/' + req.file.originalname,
+            imageURL: url + '/images/' + req.file.filename,
         })
         await movie.save();
         return res.status(200).json({msg: 'Thêm phim mới thành công'})
@@ -38,12 +39,22 @@ export const deleteMovie = (req: Request, res: Response) => {
         })
 }
 
-export const fetchMovie = async (req: Request, res: Response) => {
+export const fetchMovies = async (req: Request, res: Response) => {
     try {
         const movies = await Movie.find();
         return res.status(200).json({data: movies})
     }
     catch (err) {
+        return res.status(400).json({msg: 'Không lấy được dữ liệu'})
+    }
+}
+
+export const fetchMovie = async (req: Request, res: Response) => {
+    try {
+        const movie = await Movie.findOne({slug: req.params.slug})
+        return res.status(200).json(movie)
+    } 
+    catch (error) {
         return res.status(400).json({msg: 'Không lấy được dữ liệu'})
     }
 }

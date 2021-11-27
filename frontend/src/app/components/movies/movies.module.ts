@@ -5,11 +5,12 @@ import { MoviesComponent } from './movies.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieShowtimeComponent } from './movie-showtime/movie-showtime.component';
+import { SafeHtmlPipeModule } from 'src/app/shared/pipes/pipe.module';
 
 const movieRouters : Routes = [
   { path: '', component: MoviesComponent , children: [
     { path: '', component: MoviesListComponent },
-    { path: 'detail', component: MovieDetailComponent },
+    { path: ':slug', component: MovieDetailComponent },
     { path: 'detail/showtime', component: MovieShowtimeComponent }
   ]}
 ]
@@ -23,6 +24,7 @@ const movieRouters : Routes = [
   ],
   imports: [
     CommonModule,
+    SafeHtmlPipeModule,
     RouterModule.forChild(movieRouters)
   ]
 })

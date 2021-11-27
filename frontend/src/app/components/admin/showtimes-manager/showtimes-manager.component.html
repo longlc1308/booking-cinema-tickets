@@ -6,29 +6,27 @@
         <div class="main-form">
             <form class="form-content" (ngSubmit)="onAdd()" [formGroup]="showTimeForm" autocomplete="off" novalidate="true">
                 <div class="name form-group mb-3">
-                    <label for="name">Tên phim</label>
-                    <select id="name" class="form-custom" formControlName="movieName" required>
-                          <option selected disabled>Tên phim</option>
-                          <option value="1">1*</option>
-                          <option value="2">2*</option>
-                          <option value="3">3*</option>
-                          <option value="4">4*</option>
-                          <option value="5">5*</option>
-                    </select>
+                    <mat-form-field appearance="fill" class="mat-form-field">
+                        <mat-label for="movieName">Chọn tên phim</mat-label>
+                        <mat-select id="movieName" formControlName="movieName" required>
+                            <mat-option *ngFor="let movies of movies" value="{{movies.movieName}}">
+                                {{movies.movieName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                     <div *ngIf="showValidateSignIn">
                         <small class="form-text text-info" *ngIf="showTimeForm.controls.movieName.errors?.required">Nhập tên phim</small>
                     </div>
                 </div>
                 <div class="cinema-site form-group mb-3">
-                    <label for="cinema-site">Cụm rạp</label>
-                    <select id="cinema-site" class="form-custom" formControlName="siteName" required>
-                          <option selected disabled>Cụm rạp</option>
-                          <option value="1">1*</option>
-                          <option value="2">2*</option>
-                          <option value="3">3*</option>
-                          <option value="4">4*</option>
-                          <option value="5">5*</option>
-                    </select>
+                    <mat-form-field appearance="fill" class="mat-form-field">
+                        <mat-label for="cinema-site">Chọn rạp</mat-label>
+                        <mat-select id="cinema-site" formControlName="siteName" required>
+                            <mat-option *ngFor="let site of cgvSites" value="{{site}}">
+                                {{site}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                     <div *ngIf="showValidateSignIn">
                         <small class="form-text text-info" *ngIf="showTimeForm.controls.siteName.errors?.required">Nhập tên rạp</small>
                     </div>

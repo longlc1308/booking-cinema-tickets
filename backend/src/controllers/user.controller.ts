@@ -43,11 +43,11 @@ export const login = async (req: Request, res: Response) => {
         validationResult(req).throw();
         const user = await User.findOne({email: req.body.email})
         if(!user){
-            return res.status(400).json({errors: "emmail not found"});
+            return res.status(400).json({msg: "Không tồn tại email"});
         }
         user.compareHash(req.body.password, "password", async(error, result) => {
             if(error || !result){
-                return res.status(400).json({errors: "login failed"})
+                return res.status(400).json({msg: "Đăng nhập không thành công"})
             }
             const jwt = new JWT(user.email, user._id);
             const access_token = jwt.generate(60 * 60);
@@ -62,6 +62,7 @@ export const login = async (req: Request, res: Response) => {
                 expiresIn: 3600,
                 userId: user._id,
                 role: user.role,
+                msg: 'Đăng nhập thành công',
             });
         })
     }catch(err){
@@ -102,6 +103,6 @@ export const fetchUsers = (req: Request, res: Response) => {
         })
     })
     .catch((error) => {
-        return res.status(400).json({success: 0, ...error})
+        return res.status(400).json({msg: 'Không lấy được dữ liệu'})
     })
 }
