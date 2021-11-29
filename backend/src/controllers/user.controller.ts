@@ -32,7 +32,7 @@ export const signup = async (req: Request, res: Response) => {
             signed: true,
         })
         return res.status(200).json({msg: 'Đăng ký thành công'})
-    }catch(err) {
+    } catch(err) {
         return res.status(400).json({msg: 'Đăng ký không thành công'})
     }
 }
@@ -43,11 +43,11 @@ export const login = async (req: Request, res: Response) => {
         validationResult(req).throw();
         const user = await User.findOne({email: req.body.email})
         if(!user){
-            return res.status(400).json({msg: "Không tồn tại email"});
+            return res.status(400).json({msg: "Email không tồn tại"});
         }
         user.compareHash(req.body.password, "password", async(error, result) => {
             if(error || !result){
-                return res.status(400).json({msg: "Đăng nhập không thành công"})
+                return res.status(400).json({msg: "Mật khẩu không chính xác"})
             }
             const jwt = new JWT(user.email, user._id);
             const access_token = jwt.generate(60 * 60);
@@ -56,6 +56,7 @@ export const login = async (req: Request, res: Response) => {
                 signed: true,
             });
             res.status(200).json({
+                userName: user.name,
                 success:1,
                 error:null,
                 token:access_token,
@@ -65,7 +66,7 @@ export const login = async (req: Request, res: Response) => {
                 msg: 'Đăng nhập thành công',
             });
         })
-    }catch(err){
+    } catch(err){
         return res.status(400).json({msg: 'Đăng nhập không thành công'})
     }
 }
@@ -89,20 +90,43 @@ export const changePassword = async (req: IGETJwtInfoRequest, res: Response) => 
             await user.save();
             return res.status(200).json({success: 1, error: null})
         })
-
     } catch(error) {
         return res.status(400).json({success: 0, ...error})
     }
 }
 
+export const updateUserData = async (req: Request, res: Response) => {
+    try {
+        const new_user = {
+            name: req.body.name,
+            phone: req.body.phone,
+            gender: req.body.gender,
+            date_of_birth: req.body.date_of_birth,
+            area: req.body.area,
+        }
+        const updatedResult = await User.findByIdAndUpdate({ _id: req.params.id }, new_user, { new: true});
+        return res.status(200).json({msg: 'Cập nhật thành công'})
+    } catch (error) {
+        return res.status(400).json({msg: 'Cập nhật không thành công'})
+    }
+}
+
 
 export const fetchUsers = (req: Request, res: Response) => {
-    User.find().then((user) => {
+    User.find().then((users) => {
         res.status(200).json({
-            data: user
+            data: users
         })
     })
     .catch((error) => {
         return res.status(400).json({msg: 'Không lấy được dữ liệu'})
     })
+}
+
+export const fetchUserDetails = async (req: Request, res: Response) => {
+        User.findById(req.params.id).then((user) => {
+            res.status(200).json(user);
+        },(error) => {
+            return res.status(400).json({msg: 'Không lấy được dữ liệu'})
+        })
 }

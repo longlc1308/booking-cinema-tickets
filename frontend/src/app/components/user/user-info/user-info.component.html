@@ -19,7 +19,14 @@
                 </div>
                 <div class="form-group">
                     <p>Giới tính:</p>
-                    <input type="text" formControlName="gender" required>
+                    <div class="gender-select">
+                        <div>
+                            <input class="male ml-0" name="gender" type="radio" value="male" formControlName="gender" required /> Nam
+                        </div>
+                        <div>
+                            <input class="female" name="gender" type="radio" value="female" formControlName="gender" required /> Nữ
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <p>Ngày sinh:</p>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Event, NavigationEnd, NavigationStart, Router, NavigationError } from '@angular/router';
+import { AuthService } from './shared/services/auth.service';
 
 
 @Component({
@@ -11,12 +12,13 @@ export class AppComponent {
   title = 'frontend';
   isProgressBarLoading = false;
 
-
   constructor(
     private _router: Router,
+    private authService: AuthService,
   ) {}
 
   ngOnInit():void {
+    this.authService.autoAuthUser();
     this._router.events.subscribe((event:Event) => {
       if (event instanceof NavigationStart) {
         this.isProgressBarLoading = true;

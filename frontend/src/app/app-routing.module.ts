@@ -7,6 +7,8 @@ import { LayoutsComponent } from './components/layouts/layouts.component';
 import { MemberShipComponent } from './components/others/member-ship/member-ship.component';
 import { RecruitmentComponent } from './components/others/recruitment/recruitment.component';
 import { SiteComponent } from './components/site/site.component';
+import { NotFoundComponent } from './components/others/not-found/not-found.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -39,13 +41,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('./components/about/about.module').then((m) => m.AboutModule),
       },
+      { path: '404-page-not-found', component: NotFoundComponent },
     ],
   },
   { path: 'admin',
     loadChildren: () =>
     import('./components/admin/admin.module').then((m) => m.AdminModule),
   },
-  { path: 'user',
+  { path: 'user/:id',
     loadChildren: () =>
     import('./components/user/user.module').then((m) => m.UserModule)},
   {

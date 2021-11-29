@@ -30,6 +30,7 @@ import { BookingSeatComponent } from './components/booking-seat/booking-seat.com
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { NotFoundComponent } from './components/others/not-found/not-found.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { environment } from 'src/environments/environment';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     GroupSaleComponent,
-    BookingSeatComponent
+    BookingSeatComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
