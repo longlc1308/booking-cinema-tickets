@@ -8,19 +8,10 @@
             <li class="menu-item"><a routerLink="movies">Lịch chiếu</a></li>
             <li class="menu-item"><a routerLink="cgv-member">Thành viên</a></li>
             <li class="menu-item"><a routerLink='site'>Hệ thống rạp</a></li>
-            <!-- <li class="menu-item">
-                <a class="sub-btn">Cultureplex <i class="fas fa-angle-down"></i></a>
-                <ul class="sub-menu">
-                    <li class="sub-item"><a routerLink='online-store/movie-voucher'>Quần online</a></li>
-                    <li class="sub-item"><a routerLink='groupsale'>Sự kiện & vé nhóm</a></li>
-                    <li class="sub-item"><a routerLink='cgv-online'>E-CGV</a></li>
-                    <li class="sub-item"><a routerLink='menu-concession'>CGV Restaurant</a></li>
-                    <li class="sub-item"><a routerLink='gift-card'>Thẻ quà tặng</a></li>
-                </ul>
-            </li> -->
-            <li class="menu-item" *ngIf="RoleAdmin"><a routerLink='admin'>Admin</a></li>
-            <li class="menu-item" *ngIf="!RoleAdmin"><a routerLink='user'>User</a></li>
-            <li class="menu-item">
+            <li class="menu-item" *ngIf="RoleAdmin && isAuth"><a routerLink='admin'>Admin</a></li>
+            <li class="menu-item" *ngIf="!RoleAdmin && isAuth"><a [routerLink]="['/user/', this.userId]">Hi, {{this.userName}}</a></li>
+            <li class="menu-item" *ngIf="isAuth"><a class="log-out" (click)="onLogout()">Thoát</a></li>
+            <li class="menu-item" *ngIf="!isAuth">
                 <a routerLink='login' class="btn btn-hover">
                     <span>Đăng nhập</span>
                 </a>

@@ -39,4 +39,8 @@ export class UserService {
       this.usersUpdated.next({ users: [...this.users]})
     })
   }
+
+  fetchUserDetails(id: string){
+    return this.httpClient.get(this.API_user + '/user-detail/' + id)
+  }
 }

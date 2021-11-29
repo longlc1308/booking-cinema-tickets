@@ -10,7 +10,7 @@ export type UserDocument =  mongoose.Document & {
     phone: string;
     gender: string;
     reg_date: Date;
-    date_of_birth: string;
+    date_of_birth: Date;
     area: string;
     role: string;
     member_rankpoints: number;
@@ -37,7 +37,7 @@ type compareHash = (
     phone: String,
     gender: String,
     reg_date: Date,
-    date_of_birth: String,
+    date_of_birth: Date,
     area: String,
     role: String,
     member_rankpoints: {type: Number, default: 0},

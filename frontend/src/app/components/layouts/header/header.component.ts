@@ -1,20 +1,23 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  public RoleAdmin: boolean = true;
+export class HeaderComponent implements OnInit, OnDestroy {
+  userId: any;
+  userName: string;
+  isAuth: boolean = false;
+  public RoleAdmin: boolean;
+  private authSubscription: Subscription;
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
-
     // Jquery menu-bar
     const menu = document.querySelector('.menu');
     const menuBtn = document.querySelector('.menu-btn');
@@ -26,13 +29,37 @@ export class HeaderComponent implements OnInit {
       menu?.classList.remove("active")
     })
 
-    // const subBtn = document.querySelector('.sub-btn');
-    // const subMenu = document.querySelector('.sub-menu');
-    // subBtn.addEventListener('click',() => {
-    //   subMenu.classList.toggle("open");
-    // })
-    // subMenu.addEventListener('click',() => {
-    //   subMenu.classList.remove("open")
-    // })
+    this.isAuth = this.authService.getIsAuth();
+    this.authSubscription = this.authService.getAuthStatus().subscribe(status => {
+      this.isAuth = status;
+      console.log(this.isAuth);
+    });
+
+    this.userId = this.authService.getUserId();
+    this.authService.getAuthId().subscribe(userId => {
+      this.userId = userId;
+      console.log(this.userId);
+    })
+
+    this.userName = this.authService.getUserName();
+    this.authService.getAuthName().subscribe(userName => {
+      this.userName = userName;
+      console.log(this.userName);
+    })
+
+    if(this.authService.getRoleGuard() == "Admin"){
+      this.RoleAdmin = true;
+    }
+    else{
+      this.RoleAdmin = false;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
+  }
+
+  onLogout(){
+    this.authService.logOut()
   }
 }

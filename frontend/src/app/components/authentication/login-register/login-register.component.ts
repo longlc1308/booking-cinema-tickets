@@ -90,19 +90,23 @@ export class LoginRegisterComponent implements OnInit {
         this.signUpForm.value.gender,
         this.signUpForm.value.area
       ).subscribe((result) => {
-        console.log(result);
         Swal.fire({
           icon: 'success',
-          title: 'Your work has been saved',
+          title: result.msg,
           showConfirmButton: false,
           timer: 1500
         })
         setTimeout(() => {
           this.router.navigate(['/'])
         }, 2000)
-      },
-      (error) => {
-        console.log(error);
+      },(error) => {
+        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: error.error.msg,
+          showConfirmButton: true,
+          timer: 1500
+        })
       })
     }
   }
