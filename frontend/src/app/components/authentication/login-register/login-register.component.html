@@ -25,12 +25,10 @@
                                         <small class="form-text text-muted" *ngIf="signInForm.controls.password.errors?.required">Vui lòng nhập mật khẩu</small>
                                     </div>
                                 </div>
-                                <span><a class="d-block text-right forgot-pass">Quên mật khẩu</a></span>
+                                <span><a class="d-block text-right forgot-pass" routerLink="/forgot-password">Quên mật khẩu</a></span>
                                 <br>
-                                <button class="btn btn-primary w-100">Đăng nhập</button>
+                                <button class="btn btn-danger w-100">Đăng nhập</button>
                             </form>
-                            <span class="d-block text-center my-4">&mdash; hoặc &mdash;</span>
-                            <button class="btn btn-danger w-100">Đăng nhập với google</button>
                         </div>
                         <div class="sign-up-form" style="color: #141414">
                             <form (ngSubmit)="onSignUp()" [formGroup]="signUpForm" autocomplete="false" novalidate="true">

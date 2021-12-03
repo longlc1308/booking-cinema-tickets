@@ -8,10 +8,16 @@
                 <div class="form-group">
                     <p>Tên người dùng:</p>
                     <input type="text" formControlName="name" required>
+                    <div *ngIf="showValidate">
+                        <small class="form-text text-muted" *ngIf="updateForm.controls.name.errors?.required">Vui lòng nhập họ tên</small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <p>Số điện thoại:</p>
                     <input type="text" formControlName="phone" required>
+                    <div *ngIf="showValidate">
+                        <small class="form-text text-muted" *ngIf="updateForm.controls.name.errors?.required">Vui lòng nhập họ tên</small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <p>Email:</p>
@@ -34,7 +40,10 @@
                 </div>
                 <div class="form-group">
                     <p>Khu vực:</p>
-                    <input type="text" formControlName="area" required>
+                    <select class="form-control" formControlName="area" required>
+                      <option value="HN" selected>Hà Nội</option>
+                      <option value="HCM">Hồ Chí Minh</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <p>Thành viên: </p>
@@ -49,10 +58,20 @@
                 <div class="form-group">
                     <p>Mật khẩu mới:</p>
                     <input type="text" formControlName="new_pw" required>
+                    <div *ngIf="showValidateCheck">
+                        <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.errors?.required">Vui lòng nhập mật khẩu</small>
+                    </div>
+                    <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.dirty && changeForm.controls.new_pw.errors?.minlength">Mật khẩu yêu cầu ít nhất 6 ký tự</small>
+                    <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.dirty && changeForm.controls.new_pw.errors?.maxlength">Mật khẩu không quá 24 ký tự</small>
                 </div>
                 <div class="form-group">
                     <p>Xác nhận mật khẩu mới:</p>
                     <input type="text" formControlName="confirm_pw" required>
+                    <div *ngIf="showValidateCheck">
+                        <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.errors?.required">Vui lòng nhập mật khẩu</small>
+                    </div>
+                    <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.dirty && changeForm.controls.new_pw.errors?.minlength">Mật khẩu yêu cầu ít nhất 6 ký tự</small>
+                    <small class="form-text text-muted" *ngIf="changeForm.controls.new_pw.dirty && changeForm.controls.new_pw.errors?.maxlength">Mật khẩu không quá 24 ký tự</small>
                 </div>
                 <button class="btn btn-primary">Thay đổi</button>
             </form>

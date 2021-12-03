@@ -22,6 +22,7 @@ export class AuthService {
   public tokenTimer: any;
   private authId = new Subject<string>();
   private authName = new Subject<string>();
+  private authRole = new Subject<string>();
 
   private readonly API_user = environment.api_url + '/user';
 
@@ -57,7 +58,11 @@ export class AuthService {
 
   getRoleGuard() {
     const role = localStorage.getItem('role');
-    return role;
+    return role
+  }
+
+  getAuthRole(){
+    return this.authRole.asObservable();
   }
 
   // signup
@@ -86,15 +91,14 @@ export class AuthService {
     this.httpClient.post<{userName: string,token: string, expiresIn: number, userId: string, role: string, msg: string}>(this.API_user + '/login', User).subscribe((result) => {
       this.token = result.token;
       this.role = result.role;
-      console.log(this.role);
       if(this.token){
         const expiresInDuration = result.expiresIn;
         this.setAuthTimer(expiresInDuration);
         this.userId = result.userId;
         this.authId.next(this.userId);
-        console.log(this.userId);
         this.userName = result.userName;
         this.authName.next(this.userName);
+        this.authRole.next(this.role)
         this.authStatus.next(true);
         this.isUserAuthenticated = true;
         const now = new Date();
@@ -122,19 +126,6 @@ export class AuthService {
     })
   }
 
-  // login with google
-  async loginWithGoogle(){
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    const User = await this.afAuth.signInWithPopup(googleProvider);
-    const new_User = {
-      name: User.user?.displayName,
-      email: User.user?.email,
-      reg_date: this.today,
-      role: 'Member',
-      member_rankpoints: 0,
-    }
-  }
-
   //update user data
   updateUserInfo(id: string, name: string, phone: string, gender: string, birthday: Date, area: string) {
     const updateUserData = {
@@ -160,6 +151,22 @@ export class AuthService {
     })
   }
 
+  // forgot password
+  forgotPassword(email: string){
+    const Email = {
+      email: email,
+    }
+    return this.httpClient.put<{msg: string}>(this.API_user + '/forgot-password', Email)
+  }
+
+  // reset password
+  resetPassword(token: string, new_pw: string){
+    const password = {
+      new_password: new_pw,
+    }
+    return this.httpClient.put<{msg: string}>(this.API_user + '/reset-password/' + token, password)
+  }
+
   autoAuthUser() {
     const authInformation = this.getAuthData();
     if (!authInformation) {
@@ -177,7 +184,6 @@ export class AuthService {
     }
   }
   private setAuthTimer(duration: number) {
-    console.log('setting time: ' + duration)
     this.tokenTimer = setTimeout(() => {
       this.logOut()
     }, duration * 1000)
@@ -194,6 +200,7 @@ export class AuthService {
   private getAuthData() {
     const userName = localStorage.getItem('userName');
     const userId = localStorage.getItem('userId');
+    const role = localStorage.getItem('role');
     const token = localStorage.getItem('token');
     const expirationDate = localStorage.getItem('expirationDate')
     if (!token || !expirationDate) {
@@ -202,6 +209,7 @@ export class AuthService {
     return {
       userName: userName,
       userId: userId,
+      role: role,
       token: token,
       expirationDate: new Date(expirationDate)
     }

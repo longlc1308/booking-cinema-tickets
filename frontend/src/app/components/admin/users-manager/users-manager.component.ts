@@ -20,7 +20,6 @@ export class UsersManagerComponent implements OnInit {
     this.userService.fetchUsers();
     const subscription = this.userService.fetchUsersUpdated().subscribe((data) => {
       this.users = data.users;
-      console.log(this.users);
       subscription.unsubscribe();
     })
   }
