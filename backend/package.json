@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/longlc1308/booking-cinema-tickets#readme",
     "dependencies": {
+        "@sendgrid/mail": "^7.6.0",
         "argon2": "^0.28.2",
         "axios": "^0.22.0",
         "bluebird": "^3.7.2",
@@ -32,7 +33,7 @@
         "mongoose-slug-generator": "^1.0.4",
         "mongoose-unique-validator": "^3.0.0",
         "multer": "^1.4.3",
-        "nodemailer": "^6.6.5",
+        "nodemailer": "^6.7.2",
         "nodemon": "^2.0.13",
         "passport": "^0.5.0",
         "passport-local": "^1.0.0",

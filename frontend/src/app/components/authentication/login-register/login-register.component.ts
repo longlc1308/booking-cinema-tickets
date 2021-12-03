@@ -56,6 +56,8 @@ export class LoginRegisterComponent implements OnInit {
     formWrapper?.classList.toggle('active');
   }
 
+
+
   onSignIn(){
     if(this.signInForm.invalid){
       this.showValidateSignIn = true;

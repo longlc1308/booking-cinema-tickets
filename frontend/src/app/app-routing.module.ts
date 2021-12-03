@@ -9,6 +9,9 @@ import { RecruitmentComponent } from './components/others/recruitment/recruitmen
 import { SiteComponent } from './components/site/site.component';
 import { NotFoundComponent } from './components/others/not-found/not-found.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/authentication/reset-password/reset-password.component';
+import { RoleGuard } from './shared/guards/role.guard';
 
 
 const routes: Routes = [
@@ -18,6 +21,8 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginRegisterComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent },
+      { path: 'reset-password/:token', component: ResetPasswordComponent },
       { path: 'site', component: SiteComponent },
       { path: 'cgv-member', component: MemberShipComponent },
       { path: 'groupsale', component: GroupSaleComponent },
@@ -45,10 +50,12 @@ const routes: Routes = [
     ],
   },
   { path: 'admin',
+    canActivate: [AuthGuard],
     loadChildren: () =>
     import('./components/admin/admin.module').then((m) => m.AdminModule),
   },
   { path: 'user/:id',
+    canActivate: [RoleGuard],
     loadChildren: () =>
     import('./components/user/user.module').then((m) => m.UserModule)},
   {

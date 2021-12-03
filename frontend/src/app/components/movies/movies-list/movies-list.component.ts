@@ -38,7 +38,6 @@ export class MoviesListComponent implements OnInit {
     this.movieService.fetchMovies();
     const subscription = this.movieService.fetchMoviesUpdated().subscribe((data) => {
       this.movies = data.movies;
-      console.log(this.movies);
       subscription.unsubscribe();
     })
   }

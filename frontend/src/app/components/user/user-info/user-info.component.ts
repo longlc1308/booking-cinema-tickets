@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import Swal from 'sweetalert2';
@@ -11,6 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
+  showValidate: boolean = false;
+  showValidateCheck: boolean = false;
   public updateForm: FormGroup;
   public changeForm: FormGroup;
   private userId: any;
@@ -22,8 +23,8 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateForm = this._formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[[a-zA-Z]{2,}')]],
-      phone: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.pattern('^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$')]],
       email: [{value: '', disabled: true}, [Validators.required]],
       gender: ['', [Validators.required]],
       birthday: ['', [Validators.required]],
@@ -32,8 +33,8 @@ export class UserInfoComponent implements OnInit {
     });
 
     this.changeForm = this._formBuilder.group({
-      new_pw: ['', [Validators.required]],
-      confirm_pw: ['', [Validators.required]],
+      new_pw: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+      confirm_pw: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
     });
 
     this.userId = this.authService.getUserId();
@@ -74,6 +75,7 @@ export class UserInfoComponent implements OnInit {
 
   onUpdate(){
     if(this.updateForm.invalid){
+      this.showValidate = true;
       Swal.fire({
         icon: 'error',
         title: 'Không hợp lệ',
@@ -105,6 +107,22 @@ export class UserInfoComponent implements OnInit {
   }
 
   onChange(){
-
+    if(this.changeForm.invalid){
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Vui lòng kiểm tra lại thông tin!',
+      })
+    }
+    else if(this.changeForm.value.new_pw !== this.changeForm.value.confirm_pw){
+      Swal.fire({
+        icon: 'error',
+        title: 'Không hợp lệ',
+        text: 'Mật khẩu không trùng khớp!',
+      })
+    }
+    else{
+      console.log(this.changeForm.value)
+    }
   }
 }

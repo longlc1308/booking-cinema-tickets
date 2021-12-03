@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   userId: any;
   userName: string;
+  role: string;
   isAuth: boolean = false;
   public RoleAdmin: boolean;
   private authSubscription: Subscription;
@@ -32,25 +33,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isAuth = this.authService.getIsAuth();
     this.authSubscription = this.authService.getAuthStatus().subscribe(status => {
       this.isAuth = status;
-      console.log(this.isAuth);
     });
 
     this.userId = this.authService.getUserId();
     this.authService.getAuthId().subscribe(userId => {
       this.userId = userId;
-      console.log(this.userId);
     })
 
     this.userName = this.authService.getUserName();
     this.authService.getAuthName().subscribe(userName => {
       this.userName = userName;
-      console.log(this.userName);
     })
 
-    if(this.authService.getRoleGuard() == "Admin"){
+    this.role = this.authService.getRoleGuard();
+    this.authService.getAuthRole().subscribe(role => {
+      this.role = role;
+      if(this.role == "Admin"){
+        this.RoleAdmin = true;
+      }
+      else {
+        this.RoleAdmin = false;
+      }
+      console.log(this.RoleAdmin);
+    })
+
+    if(this.role == "Admin"){
       this.RoleAdmin = true;
     }
-    else{
+    else {
       this.RoleAdmin = false;
     }
   }

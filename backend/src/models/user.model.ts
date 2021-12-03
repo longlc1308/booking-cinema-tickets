@@ -15,6 +15,7 @@ export type UserDocument =  mongoose.Document & {
     role: string;
     member_rankpoints: number;
     is_active: 0 | 1;
+    reset_token: string;
 
     comparePassword: comparePassword;
     compareHash: compareHash;
@@ -41,7 +42,8 @@ type compareHash = (
     area: String,
     role: String,
     member_rankpoints: {type: Number, default: 0},
-    is_active: {type: Number, default: 0 }
+    is_active: {type: Number, default: 0},
+    reset_token: {type: String, default: ""},
 
 })
 
