@@ -1,7 +1,7 @@
 export interface showTime {
   movieName: string;
   siteName: string;
-  startDate: string;
+  showDate: string;
   startTime: string;
   price: string;
 }

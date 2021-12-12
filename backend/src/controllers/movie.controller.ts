@@ -1,4 +1,4 @@
-import { Movie } from "./../models/movie.model";
+import {Movie} from "./../models/movie.model";
 import express, {NextFunction, Request, Response} from "express";
 
 
@@ -26,6 +26,7 @@ export const createMovie = async (req: Request, res: Response) => {
         return res.status(200).json({msg: 'Thêm phim mới thành công'})
     }
     catch (err) {
+        console.log(err);
         return res.status(400).json({msg: 'Thêm mới không thành công'})
     }
 }
