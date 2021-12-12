@@ -32,10 +32,16 @@
                     </div>
                 </div>
                 <div class="startDate form-group mb-3">
-                    <label for="startDate">Ngày chiếu</label>
-                    <input type="date" class="form-control" formControlName="startDate" required>
+                    <mat-form-field appearance="fill" class="mat-form-field">
+                        <mat-label for="cinema-day">Ngày chiếu</mat-label>
+                        <mat-select id="cinema-day" formControlName="showDate" required>
+                            <mat-option *ngFor="let day of cgvDays" value="{{day}}">
+                                {{day}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                     <div *ngIf="showValidateSignIn">
-                        <small class="form-text text-info" *ngIf="showTimeForm.controls.startDate.errors?.required">Nhập ngày chiếu</small>
+                        <small class="form-text text-info" *ngIf="showTimeForm.controls.showDate.errors?.required">Nhập ngày chiếu</small>
                     </div>
                 </div>
                 <div class="startTime form-group mb-3">

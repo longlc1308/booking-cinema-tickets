@@ -14,6 +14,7 @@ export type MovieDocument =  mongoose.Document & {
     timeAmount: number;
     trailer: string;
     imageURL: string;
+    showTime: Array<string>;
     slug: string;
 }
 
@@ -31,6 +32,7 @@ const movieSchema = new mongoose.Schema<MovieDocument>({
     timeAmount: Number,
     trailer: String,
     imageURL: {type: String, required: true},
+    showTime: [{type: mongoose.Schema.Types.ObjectId, ref: 'showTime'}],
     slug: {type: String, slug: 'movieName', unique: true},
 })
 

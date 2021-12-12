@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { MovieService } from 'src/app/shared/services/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +8,20 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  public movies: any;
+  constructor(
+    private movieService: MovieService,
+  ) {
   }
 
   ngOnInit(): void {
-    window.addEventListener('scroll', this.reveal)
+    window.addEventListener('scroll', this.reveal);
+    this.fetchData();
   }
 
   reveal = () => {
     const reveals = document.querySelectorAll('.reveal');
-    for ( var i = 0; i < reveals.length; i++) {
+    for ( let i = 0; i < reveals.length; i++) {
       const windowHeight = window.innerHeight;
       const revealTop = reveals[i].getBoundingClientRect().top;
       const revealPoint = 50;
@@ -45,7 +50,7 @@ export class HomeComponent implements OnInit {
       1000: {
         items: 6,
       },
-    }
+    },
   }
   customOption2: OwlOptions = {
     dots: false,
@@ -63,6 +68,14 @@ export class HomeComponent implements OnInit {
       },
     },
     nav: true
+  }
+
+  fetchData() {
+    this.movieService.fetchMovies();
+    const subscription = this.movieService.fetchMoviesUpdated().subscribe((data) => {
+      this.movies = data.movies;
+      subscription.unsubscribe();
+    })
   }
 
 }
