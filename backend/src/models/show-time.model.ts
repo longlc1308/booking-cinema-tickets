@@ -17,4 +17,4 @@ const showTimeSchema = new mongoose.Schema<showTimeDocument>({
     price: String,
 })
 
-export const showTime = mongoose.model<showTimeDocument>("showTime", showTimeSchema, "showTimes");
+export const ShowTime = mongoose.model<showTimeDocument>("ShowTime", showTimeSchema, "showTimes");

@@ -1,4 +1,4 @@
-import {showTime} from "./../models/show-time.model";
+import {ShowTime} from "./../models/show-time.model";
 import {Movie} from "./../models/movie.model";
 import {Request, Response} from "express";
 
@@ -6,7 +6,7 @@ export const createShowTime = async (req: Request, res: Response) => {
     console.log(req.body);
     
     try {
-        const new_showTime = new showTime({
+        const new_showTime = new ShowTime({
             movieName: req.body.movieName,
             siteName: req.body.siteName,
             showDate: req.body.showDate,
