@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
+import morgan from 'morgan';
 
 class App {
     public express
@@ -43,14 +44,12 @@ class App {
         this.express.use(cookieParser(this._secretCookie))
         this.express.use(express.urlencoded({ extended: true }));
         this.express.use(cors());
+        this.express.use(morgan('tiny'));
         this.express.use("/images", express.static(path.join("src/images")));
     }    
 
     private _loadRoutes() {
         this.express.use('/api/v1.0', router);
-        this.express.get('/', (req, res) => {
-            res.send('Backend is working')
-        })
     }
 }
 

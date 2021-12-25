@@ -1,7 +1,8 @@
 import express from "express";
-const router = express.Router();
 import { upload } from "../../middlewares/multer";
 import * as movieController from "../../controllers/movie.controller";
+const router = express.Router();
+
 
 router.post("/", upload.single('imageURL'), movieController.createMovie);
 router.delete("/", movieController.deleteMovie);
